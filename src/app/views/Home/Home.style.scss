@@ -1,0 +1,33 @@
+
+    .background {
+        background-image: url('../../../assets/img/travel.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100vw;
+        height: 100vh;
+        overflow-x: hidden;
+    }
+    .flexCenter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+    }
+    .flexTop {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        height: auto;
+    }
+    .font {
+
+        font-family: 'Poppins', sans-serif;
+        font-weight: bold
+
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');
+
+
+
+

@@ -1,0 +1,134 @@
+{
+  "places": [
+    {
+      "id": 1,
+      "city": "Medellín",
+      "country": "Colombia",
+      "flag": "CO"
+    },
+    {
+      "id": 2,
+      "city": "Bogotá",
+      "country": "Colombia",
+      "flag": "CO"
+    },
+    {
+      "id": 3,
+      "city": "Cali",
+      "country": "Colombia",
+      "flag": "CO"
+    },
+    {
+      "id": 4,
+      "city": "Bucaramanga",
+      "country": "Colombia",
+      "flag": "CO"
+    },
+    {
+      "id": 5,
+      "city": "Cartagena",
+      "country": "Colombia",
+      "flag": "CO"
+    },
+    {
+      "id": 6,
+      "city": "Miami",
+      "country": "Estados unidos",
+      "flag": "US"
+    },
+    {
+      "id": 7,
+      "city": "Chicago",
+      "country": "Estados unidos",
+      "flag": "US"
+    },
+    {
+      "id": 8,
+      "city": "Los Angeles",
+      "country": "Estados unidos",
+      "flag": "US"
+    },
+    {
+      "id": 9,
+      "city": "Boston",
+      "country": "Estados unidos",
+      "flag": "US"
+    },
+    {
+      "id": 10,
+      "city": "Washington",
+      "country": "Estados unidos",
+      "flag": "US"
+    },
+    {
+      "id": 11,
+      "city": "Barcelona",
+      "country": "España",
+      "flag": "SP"
+    },
+    {
+      "id": 12,
+      "city": "Madrid",
+      "country": "España",
+      "flag": "SP"
+    },
+    {
+      "id": 13,
+      "city": "Marbella",
+      "country": "España",
+      "flag": "SP"
+    },
+    {
+      "id": 14,
+      "city": "Galicia",
+      "country": "España",
+      "flag": "SP"
+    },
+    {
+      "id": 15,
+      "city": "Ibiza",
+      "country": "España",
+      "flag": "SP"
+    }
+  ],
+  "reservations": [
+    {
+      "id": 1,
+      "flightNumber": "FL1477",
+      "cityOrigin": "Medellín",
+      "countryOrigin": "Colombia",
+      "cityDestination": "Miami",
+      "countryDestination": "Estados Unidos",
+      "datetime": "",
+      "price": "100"
+    },
+    {
+      "id": 2,
+      "flightNumber": "FL1477",
+      "cityOrigin": "Bogota",
+      "countryOrigin": "Colombia",
+      "cityDestination": "Miami",
+      "countryDestination": "Estados Unidos",
+      "datetime": "",
+      "price": "100"
+    },
+    {
+      "id": 3,
+      "flightNumber": "FL1477",
+      "cityOrigin": "Bogota",
+      "countryOrigin": "Colombia",
+      "cityDestination": "Miami",
+      "countryDestination": "Estados Unidos",
+      "datetime": "",
+      "price": "100"
+    },
+    {
+      "flightNumber": "FL-3888.0382634462953",
+      "cityOrigin": "Medellín",
+      "cityDestination": "Cartagena",
+      "datetime": "2021-08-10T20:23",
+      "price": "0",
+      "id": 4
+    }
+  ]
+}

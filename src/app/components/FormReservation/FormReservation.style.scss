@@ -1,0 +1,16 @@
+.card {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    max-width: 350px;
+    margin: 20px 20px 20px 20px;
+}
+
+.flexCenter {
+    display: flex;
+    justify-content: center;
+}
+
+.opacity {
+    background-color: rgba(255,255,255,0.7);
+}
