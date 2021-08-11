@@ -4,8 +4,8 @@ import FormReservation from '../../components/FormReservation/FormReservation';
 
 const NewReservation = () => {
     return (
-        <div className="background">
-            
+        <div className="backgroundFly">
+            <h4 className="text-white flexCenter">Nueva Reserva</h4>
             <FormReservation />
         </div>
     );

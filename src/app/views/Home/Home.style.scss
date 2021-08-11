@@ -1,17 +1,20 @@
+.backgroundFlyHome {
+    background-image: url('../../../assets/img/travel.jpg');
+    height: 100vh;
+}
 
-    .background {
-        background-image: url('../../../assets/img/travel.jpg');
-        background-size: cover;
-        background-repeat: no-repeat;
-        width: 100vw;
-        height: 100vh;
-        overflow-x: hidden;
-    }
     .flexCenter {
         display: flex;
+        flex-direction: row;
         justify-content: center;
-        align-items: center;
-        height: auto;
+        height: 100vh;
+        width: 100vw;
+        flex-wrap: wrap;
+    }
+
+    .center {
+        display: flex;
+        justify-content: center;
     }
     .flexTop {
         display: flex;
@@ -25,6 +28,8 @@
         font-weight: bold
 
     }
+
+   
 
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&display=swap');
 

@@ -9,20 +9,19 @@ import { Sidebar } from '../SideBar/SideBar';
 
 const Navbar = () => {
     const [arraySidebar, setArraySidebar] = useState(Sidebar);
-    /* const [sidebar, setSidebar] = useState(false); */
-    /* const showSidebar = () => setSidebar(!sidebar) */
 
     return (
         <>
             <div className="collapse" id="navbarToggleExternalContent">
                 <div className="bg-dark p-4">
                     <h5 className="text-white h4">Bienvenido a TravelCo</h5>
-                    <span className="text-muted">Escoge entre una de nuestras opciones</span>
+                    
+                    <br />
                     <ul>
                         {
                             arraySidebar.map((element, index) => (
-                                <Link to={element.path}>
-                                    <li className="text-white" key={index.toString()}> {element.title} </li>
+                                <Link className="link" to={element.path}>
+                                    <li className="li" key={index.toString()}> {element.title} </li>
                                 </Link>
                             ))
                         }

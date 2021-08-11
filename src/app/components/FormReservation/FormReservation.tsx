@@ -4,6 +4,7 @@ import Input from '../Input/Input';
 import './FormReservation.style.scss';
 import { useDispatch } from 'react-redux';
 import { createReservation } from '../../core/redux/actions/reservationActions';
+import Swal from 'sweetalert2'
 
 
 const FormReservation = () => {
@@ -71,26 +72,37 @@ const FormReservation = () => {
 
     const dispatchAction = async () => {
 
-        let random = Math.random() * (9999 - 1111) + 1111;
+        if (name !== '' && lastname !== '' && age !== '' && date !== '' && amount !== '') {
+            let random = Math.random() * (9999 - 1111) + 1111;
 
-        let obj = {
-            flightNumber: `FL-${random}`,
-            cityOrigin,
-            cityDestination,
-            datetime: date,
-            price: '0'
-        };
+            let nFlight = Math.round(random);
+    
+            let obj = {
+                flightNumber: `FL-${nFlight}`,
+                cityOrigin,
+                cityDestination,
+                datetime: date,
+                price: '0'
+            };
+    
+    
+            await dispatch(createReservation(obj));
 
+            Swal.fire('¡Se ha creado la reserva con exito!')
 
-        await dispatch(createReservation(obj));
+        } else {
+            alert('Datos incompletos')
+        }
+
     };
 
 
     return (
         <>
+            
             <div data-aos="zoom-in" className="card mx-auto opacity">
                 <div className="card-header">
-                    <div className="flexCenter">
+                    <div className="">
                         <strong>
                             Nueva Reservación
                         </strong>
@@ -136,7 +148,7 @@ const FormReservation = () => {
             </div>
             <div data-aos="zoom-in" className="card mx-auto opacity">
                 <div className="card-body">
-                    <h6 className="card-title">Datos personales (Titular de la reserva)</h6>
+                    <h6 className="card-title">Datos personales </h6>
                     <hr />
                     <div className="form-group">
                         <strong>Nombres</strong>
@@ -153,7 +165,7 @@ const FormReservation = () => {
                         <Input value={age} name={'age'} type={'number'} onChange={(e) => handleChange(e)} />
                     </div>
 
-                    <div className="flexCenter">
+                    <div className="">
                         <button className="btn btn-info text-white mt-2" onClick={() => dispatchAction()}>  Reservar </button>
                     </div>
                 </div>

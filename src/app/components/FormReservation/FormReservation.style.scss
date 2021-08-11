@@ -6,9 +6,12 @@
     margin: 20px 20px 20px 20px;
 }
 
+
+
 .flexCenter {
     display: flex;
     justify-content: center;
+    flex-direction: row;
 }
 
 .opacity {

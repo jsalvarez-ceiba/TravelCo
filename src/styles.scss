@@ -25,6 +25,7 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
 }
 
 *, *::before, *::after {
@@ -43,6 +44,28 @@ ul {
 * {
   font-family: 'Poppins', sans-serif;
 }
+
+@keyframes fanimado {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+.background {
+  background-image: linear-gradient(135deg,
+      #FFE033, #33C1FF, #FC4242
+  );
+  background-size: 500%;
+  animation: fanimado 10s infinite;
+  width: 100vw;
+  height: auto;
+} 
 
 
 
