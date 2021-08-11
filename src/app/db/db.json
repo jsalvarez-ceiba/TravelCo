@@ -161,6 +161,30 @@
       "datetime": "2021-09-15T10:33",
       "price": "0",
       "id": 8
+    },
+    {
+      "flightNumber": "FL-3479",
+      "cityOrigin": "Los Angeles",
+      "cityDestination": "Medellín",
+      "datetime": "2021-08-14T10:20",
+      "price": "0",
+      "id": 9
+    },
+    {
+      "flightNumber": "FL-5903",
+      "cityOrigin": "Medellín",
+      "cityDestination": "Madrid",
+      "datetime": "2021-08-14T10:20",
+      "price": "0",
+      "id": 10
+    },
+    {
+      "flightNumber": "FL-4336",
+      "cityOrigin": "Medellín",
+      "cityDestination": "Marbella",
+      "datetime": "2021-08-31T20:00",
+      "price": "0",
+      "id": 11
     }
   ]
 }

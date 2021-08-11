@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const ListReservations = () => {
     return (
@@ -31,4 +31,4 @@ const ListReservations = () => {
     )
 }
 
-export default ListReservations
+export default ListReservations;

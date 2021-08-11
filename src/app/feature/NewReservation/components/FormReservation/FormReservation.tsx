@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { axiosIntance } from 'app/core/config/AxiosConfig';
-import Input from '../Input/Input';
+import { axiosIntance } from '../../../../core/config/AxiosConfig';
+import Input from '../../../../shared/components/Input/Input';
 import './FormReservation.style.scss';
 import { useDispatch } from 'react-redux';
-import { createReservation } from '../../core/redux/actions/reservationActions';
+import { createReservation } from '../../../../core/redux/actions/reservationActions';
 import Swal from 'sweetalert2'
 
 

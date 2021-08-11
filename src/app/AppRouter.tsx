@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Home from './views/Home/Home';
-import Navbar from './components/Navbar/Navbar';
-import Places from './views/Places/Places';
-import New from './views/NewReservation/NewReservation';
-import Search from './views/Search/Search';
+import Home from '../app/feature/Home/pages/Home';
+import Navbar from './feature/Navbar/components/Navbar/Navbar';
+import Places from './feature/Places/pages/Places';
+import NewReservation from './feature/NewReservation/pages/NewReservation';
+import Search from './feature/Search/pages/Search';
 
 export const AppRouter = () => {
   return (
@@ -13,7 +13,7 @@ export const AppRouter = () => {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/places" component={Places} />
-        <Route path="/new" component={New} />
+        <Route path="/new" component={NewReservation} />
         <Route path="/search" component={Search} />
       </Switch>
     </BrowserRouter>

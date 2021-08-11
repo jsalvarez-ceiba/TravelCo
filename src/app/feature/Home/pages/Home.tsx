@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import './Home.style.scss';
-import TitleHome from '../../components/TitleHome/TitleHome';
 
-import medellin from '../../../assets/img/travelco.jpg'
+
+import TitleHome from '../components/TitleHome/TitleHome';
+
+
 
 
 const Home = () => {
@@ -24,8 +25,8 @@ const Home = () => {
               <h5 className="card-title text-center">Reserva tus vuelos</h5>
               <p className="card-text text-center">Contamos con destinos nacionales e internacionales</p>
               <div className="center">
-                <img style={{width: 315, height: 300}} src={medellin} alt="" />
-              </div>
+{/*                 <img style={{width: 315, height: 300}} src={medellin} alt="" />
+ */}              </div>
             </div>
           </div>
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import ContainerPlaces from '../../components/ContainerPlaces/ContainerPlaces';
-import './Places.style.scss';
+import ContainerPlaces from '../components/ContainerPlaces/ContainerPlaces';
+
 //import { useSelector } from 'react-redux';
 //import { NotesState } from 'app/core/redux/reducers/reservationReducer';
 

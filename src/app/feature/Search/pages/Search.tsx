@@ -1,6 +1,6 @@
 import React from 'react'
 /* import './Search.style.scss'; */
-import ListReservations from '../../components/ListReservations/ListReservations'
+import ListReservations from '../components/ListReservations/ListReservations';
 
 const Search = () => {
     return (
@@ -24,4 +24,4 @@ const Search = () => {
     )
 }
 
-export default Search
+export default Search;

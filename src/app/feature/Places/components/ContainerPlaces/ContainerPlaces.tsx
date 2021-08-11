@@ -1,25 +1,21 @@
 import React, {useEffect, useState} from 'react';
-import { axiosIntance } from '../../core/config/AxiosConfig';
-import './ContainerPlaces.style.scss';
+import { axiosIntance } from '../../../../core/config/AxiosConfig';
 
-import medellin from '../../../assets/img/medellin.jpg'
-import bogota from '../../../assets/img/bogota.jpg'
-import cali from '../../../assets/img/cali.jpg'
-import cartagena from '../../../assets/img/Cartagena.jpg'
-import bucaramanga from '../../../assets/img/Bucaramanga.png'
-
-import miami from '../../../assets/img/miami.jpg'
-import chicago from '../../../assets/img/chicago.jpg'
-import boston from '../../../assets/img/boston.jpg'
-import la from '../../../assets/img/losangeles.jpg'
-import washington from '../../../assets/img/washington.jpg'
-
-
-import madrid from '../../../assets/img/madrid.jpg'
-import barcelona from '../../../assets/img/barcelona.jpg'
-import ibiza from '../../../assets/img/ibiza.jpg'
-import galicia from '../../../assets/img/galicia.jpg'
-import marbella from '../../../assets/img/marbella.jpg'
+/* import medellin from '../../../../../assets/img/imgsPlaces/medellin.jpg';
+import bogota from '../../../../../assets/img/imgsPlaces/bogota.jpg';
+import cali from '../../../../../assets/img/imgsPlaces/cali.jpg';
+import cartagena from '../../../../../assets/img/imgsPlaces/Cartagena.jpg';
+import bucaramanga from '../../../../../assets/img/imgsPlaces/Bucaramanga.png';
+import miami from '../../../../../assets/img/imgsPlaces/miami.jpg'
+import chicago from '../../../../../assets/img/imgsPlaces/chicago.jpg'
+import boston from '../../../../../assets/img/imgsPlaces/boston.jpg'
+import la from '../../../../../assets/img/imgsPlaces/losangeles.jpg'
+import washington from '../../../../../assets/img/washington.jpg'
+import madrid from '../../../../../assets/img/madrid.jpg'
+import barcelona from '../../../../../assets/img/barcelona.jpg'
+import ibiza from '../../../../../assets/img/ibiza.jpg'
+import galicia from '../../../../../assets/img/galicia.jpg'
+import marbella from '../../../../../assets/img/marbella.jpg' */
 
 
 const ContainerPlaces = () => {
@@ -45,12 +41,12 @@ const ContainerPlaces = () => {
 
     return (
         <div className="flexCenter">
-            {
+            {/* {
                 places.map((element:placesModel, index) => (
 
                     <div className="card">
                         <img style={{width: 320, height: 250}} src={
-                            element.city === 'Medellín' ? medellin : 
+                            element.city === 'Medellín' ? medellin :
                             element.city === 'Bogotá' ? bogota :
                             element.city === 'Cali' ? cali :
                             element.city === 'Bucaramanga' ? bucaramanga :
@@ -75,7 +71,7 @@ const ContainerPlaces = () => {
 
             
                 ))
-            }
+            } */}
             
         </div>
     );
