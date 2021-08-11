@@ -6,37 +6,37 @@ import {prettyDOM} from '@testing-library/dom'
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 
-/*  afterEach(cleanup)
+ afterEach(cleanup)
 
-const startingState = {} */
+const startingState = {}
 
-/* interface Action {
+interface Action {
     type:string
-} */
+}
 
-/* function reducer (state = startingState, action : Action) {
+function reducer (state = startingState, action : Action) {
     switch (action.type) {
         default:
             return state;
 
     }
-} */
+}
 
 
 
-/* function renderWithRedux (component:any, {store = createStore(reducer, startingState)} = {}) {
+function renderWithRedux (component:any, {store = createStore(reducer, startingState)} = {}) {
     return {
         ...render(<Provider store={store}>{component}</Provider> )
     }
-}  */
+} 
 
-/*  test('render', () => {
+ test('render', () => {
     renderWithRedux( <FormReservation /> )
-})  */
+}) 
 
-test('TravelCo Form', () => {
+/* test('TravelCo Form', () => {
     expect(true).toBeTruthy()
-})
+}) */
 
 /* test('test of FormReservations', () => {
         const component = renderWithRedux(<FormReservation />)
