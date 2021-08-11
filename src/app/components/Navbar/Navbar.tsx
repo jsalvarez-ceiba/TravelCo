@@ -1,14 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './Navbar.style.scss';
-import { Sidebar } from '../SideBar/SideBar';
 
-
+const arraySidebar = [
+    {
+        title: 'Home',
+        path: '/',
+    },
+    {
+        title: 'Destinos',
+        path: '/places',
+    },
+    {
+        title: 'Reservar',
+        path: '/new',
+    },
+    {
+        title: 'Buscar reserva',
+        path: '/search',
+    }, 
+];
 
 
 const Navbar = () => {
-    const [arraySidebar, setArraySidebar] = useState(Sidebar);
 
     return (
         <>

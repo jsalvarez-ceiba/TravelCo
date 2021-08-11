@@ -12,9 +12,9 @@ const FormReservation = () => {
     const dispatch = useDispatch();
 
     const [cityOrigin, setCityOrigin] = useState('');
-    const [countryOrigin, setCountryOrigin] = useState('');
+    /* const [countryOrigin, setCountryOrigin] = useState(''); */
     const [cityDestination, setCityDestination] = useState('');
-    const [countryDestination, setCountryDestination] = useState('');
+    /* const [countryDestination, setCountryDestination] = useState(''); */
 
     const [name, setName] = useState('');
     const [lastname, setLastname] = useState('');
