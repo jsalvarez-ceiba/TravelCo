@@ -6,7 +6,7 @@ import {prettyDOM} from '@testing-library/dom'
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 
-afterEach(cleanup)
+ afterEach(cleanup)
 
 const startingState = {}
 
@@ -28,21 +28,20 @@ function renderWithRedux (component:any, {store = createStore(reducer, startingS
     return {
         ...render(<Provider store={store}>{component}</Provider> )
     }
-}
+} 
 
-test('render', () => {
+ test('render', () => {
     renderWithRedux( <FormReservation /> )
-})
+}) 
 
 test('TravelCo Form', () => {
     expect(true).toBeTruthy()
 })
 
-describe('test of FormReservations', () => {
-    it('have select', () => {
+test('test of FormReservations', () => {
         const component = renderWithRedux(<FormReservation />)
         const select = component.container.querySelector('select')
         expect(select).toBeTruthy()
-    })
-})
+        
+}) 
 
