@@ -153,6 +153,14 @@
       "datetime": "2021-09-14T16:50",
       "price": "0",
       "id": 7
+    },
+    {
+      "flightNumber": "FL-8209",
+      "cityOrigin": "Miami",
+      "cityDestination": "Chicago",
+      "datetime": "2021-09-15T10:33",
+      "price": "0",
+      "id": 8
     }
   ]
 }

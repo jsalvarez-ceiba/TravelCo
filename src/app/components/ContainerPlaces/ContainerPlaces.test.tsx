@@ -33,3 +33,9 @@ test('ContainerPlaces Render', () => {
     renderWithRedux( <ContainerPlaces /> )
 }) 
 
+test('Count cards', () => {
+    const component = renderWithRedux( <ContainerPlaces /> )
+
+    expect(component).toBeTruthy();
+})
+
