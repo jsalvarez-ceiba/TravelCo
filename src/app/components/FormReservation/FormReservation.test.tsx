@@ -30,7 +30,7 @@ function renderWithRedux (component:any, {store = createStore(reducer, startingS
     }
 } 
 
- test('render', () => {
+ test('FormReservation Render', () => {
     renderWithRedux( <FormReservation /> )
 }) 
 
