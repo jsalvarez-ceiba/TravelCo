@@ -23,7 +23,7 @@ const arraySidebar = [
 ];
 
 
-const Navbar = () => {
+const Navbar : React.FC = () => {
 
     return (
         <>
