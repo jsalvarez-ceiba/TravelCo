@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import { axiosIntance } from '../../../../core/config/AxiosConfig';
 
 /* import medellin from '../../../../../assets/img/imgsPlaces/medellin.jpg';
@@ -26,13 +26,13 @@ const ContainerPlaces = () => {
         flag: string
     }
 
-    const [places, setplaces] = useState([]);
+    /* const [places, setplaces] = useState([]); */
 
     useEffect(() => {
 
         axiosIntance.get('http://localhost:8000/places').then((res) => {
             console.log('res places => ', res.data);
-            setplaces(res.data);
+            /* setplaces(res.data); */
         });
 
         
