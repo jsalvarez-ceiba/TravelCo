@@ -1,33 +1,16 @@
 import React from 'react';
-import '@testing-library/jest-dom/extend-expect';
-import {render, cleanup} from '@testing-library/react'
-import NewReservation from './NewReservation'
-import {createStore} from 'redux'
-import {Provider} from 'react-redux'
 
-afterEach(cleanup)
+import {render} from '@testing-library/react';
 
-const startingState = {}
+import NewReservation from './NewReservation';
 
-interface Action {
-    type:string
-}
 
-function reducer (state = startingState, action : Action) {
-    switch (action.type) {
-        default:
-            return state;
-
-    }
-}
-
-function renderWithRedux (component:any, {store = createStore(reducer, startingState)} = {}) {
-    return {
-        ...render(<Provider store={store}>{component}</Provider> )
-    }
-} 
-
-test('Render Home View', () => {
-    const component = renderWithRedux(<NewReservation/>)
-    expect(component).toBeTruthy();
-})
+describe('Render Home View', () => {
+    
+    
+    test('render new reservations', () => {
+        const component = render(NewReservation);
+        expect(component).toBeTruthy();
+        
+    });
+});

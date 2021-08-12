@@ -1,8 +1,8 @@
-import React from 'react';
+/* import React from 'react';
 
 import FormReservation from '../components/FormReservation/FormReservation';
 
-const NewReservation = () => {
+const NewReservation : React.FC = () => {
     return (
         <div className="backgroundFly">
             <h4 className="text-white flexCenter">Nueva Reserva</h4>
@@ -10,5 +10,8 @@ const NewReservation = () => {
         </div>
     );
 };
+export default NewReservation; */
 
-export default NewReservation;
+export const New = {
+    new: ''
+};

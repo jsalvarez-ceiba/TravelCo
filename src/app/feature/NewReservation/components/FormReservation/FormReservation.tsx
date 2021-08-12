@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { axiosIntance } from '../../../../core/config/AxiosConfig';
-import Input from '../../../../shared/components/Input/Input';
-import './FormReservation.style.scss';
+
 /* import { useDispatch } from 'react-redux'; */
 /* import { createReservation } from '../../../../core/redux/actions/reservationActions';
- */import Swal from 'sweetalert2';
-const FormReservation = () => {
+ */
 
-    /* const dispatch = useDispatch(); */
+
+ export const form = {
+     form: ''
+ };
+
+/* const FormReservation = () => {
+
+    const dispatch = useDispatch();
 
     const [cityOrigin, setCityOrigin] = useState('');
     
@@ -77,7 +82,7 @@ const FormReservation = () => {
             };
             console.log(obj);
     
-            /* dispatch(createReservation(obj)); */
+            dispatch(createReservation(obj));
 
             Swal.fire('¡Se ha creado la reserva con exito!');
 
@@ -165,4 +170,4 @@ const FormReservation = () => {
     );
 };
 
-export default FormReservation;
+export default FormReservation; */

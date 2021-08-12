@@ -1,4 +1,4 @@
-import {axiosIntance} from '../../config/AxiosConfig';
+/* import {axiosIntance} from '../../config/AxiosConfig';
 import {urls} from '../../api/endpoints';
 
 export type Action = {
@@ -12,6 +12,10 @@ export const createReservation = (data:any) => {
             headers: {'Content-Type': 'application/json'}
         }).then((res) => console.log(res));
     };
+}; */
+
+export const actions = {
+    action: ''
 };
 
     
