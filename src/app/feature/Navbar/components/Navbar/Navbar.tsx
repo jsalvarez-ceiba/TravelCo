@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 
 import './Navbar.style.scss';
 
-const arraySidebar = [
+/* const arraySidebar = [
     {
         title: 'Home',
         path: '/',
@@ -20,7 +20,7 @@ const arraySidebar = [
         title: 'Buscar reserva',
         path: '/search',
     }, 
-];
+]; */
 
 
 const Navbar : React.FC = () => {
@@ -32,7 +32,7 @@ const Navbar : React.FC = () => {
                     <h5 className="text-white h4">Bienvenido a TravelCo</h5>
                     
                     <br />
-                    <ul>
+                    {/* <ul>
                         {
                             arraySidebar.map((element, index) => (
                                 <Link className="link" to={element.path}>
@@ -40,7 +40,7 @@ const Navbar : React.FC = () => {
                                 </Link>
                             ))
                         }
-                    </ul>
+                    </ul> */}
                 </div>
             </div>
             <nav className="navbar navbar-dark bg-dark">

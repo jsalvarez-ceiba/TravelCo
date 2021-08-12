@@ -14,7 +14,7 @@ describe('Pruebas al componente TitleHome', () => {
     test('Snapshot Component', () => {
         expect(Title).toMatchSnapshot();
     });
-})
+});
 
 
 

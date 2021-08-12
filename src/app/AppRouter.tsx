@@ -6,7 +6,7 @@ import Places from './feature/Places/pages/Places';
 import NewReservation from './feature/NewReservation/pages/NewReservation';
 import Search from './feature/Search/pages/Search';
 
-export const AppRouter = () => {
+export const AppRouter : React.FC = () => {
   return (
     <BrowserRouter>
       <Navbar />
