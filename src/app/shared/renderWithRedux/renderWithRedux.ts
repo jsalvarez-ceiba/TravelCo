@@ -1,4 +1,9 @@
 import React from 'react';
+
+export const obj = {
+    id: ''
+};
+
 /* import {Provider} from 'react-redux'
 import '@testing-library/jest-dom/extend-expect';
 

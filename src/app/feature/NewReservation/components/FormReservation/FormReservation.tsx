@@ -4,7 +4,7 @@ import Input from '../../../../shared/components/Input/Input';
 import './FormReservation.style.scss';
 /* import { useDispatch } from 'react-redux'; */
 /* import { createReservation } from '../../../../core/redux/actions/reservationActions';
- */import Swal from 'sweetalert2'
+ */import Swal from 'sweetalert2';
 const FormReservation = () => {
 
     /* const dispatch = useDispatch(); */
@@ -62,8 +62,9 @@ const FormReservation = () => {
                 setCityDestination(e.target.value);
                 break;
             
+            
         }
-    }
+    };
 
     const dispatchAction = () => {
         if (name !== '' && lastname !== '' && age !== '' && date !== '' && amount !== '') {
@@ -74,14 +75,14 @@ const FormReservation = () => {
                 datetime: date,
                 price: '0'
             };
-            console.log(obj)
+            console.log(obj);
     
             /* dispatch(createReservation(obj)); */
 
-            Swal.fire('¡Se ha creado la reserva con exito!')
+            Swal.fire('¡Se ha creado la reserva con exito!');
 
         } else {
-            alert('Datos incompletos')
+            alert('Datos incompletos');
         }
 
     };

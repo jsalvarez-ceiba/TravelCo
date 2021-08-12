@@ -1,3 +1,3 @@
-export interface ReservationModel {
-    
-}
+export const ReservationModel = {
+    id: ''  
+};

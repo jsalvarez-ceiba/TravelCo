@@ -5,6 +5,7 @@ import FormReservation from './FormReservation';
 import {prettyDOM} from '@testing-library/dom'
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
+import {mount} from 'enzyme';
 
  afterEach(cleanup)
 
@@ -30,13 +31,28 @@ function renderWithRedux (component:any, {store = createStore(reducer, startingS
     }
 } 
 
- test('FormReservation Render', () => {
-    renderWithRedux( <FormReservation /> )
-}) 
+describe('Test Form', () => {
 
-/* test('TravelCo Form', () => {
-    expect(true).toBeTruthy()
-}) */
+    const component = renderWithRedux( <FormReservation /> );
+
+    /* const comp = mount(<FormReservation/>); */
+
+
+    test('FormReservation Render', () => {
+       renderWithRedux( <FormReservation /> )
+    });
+
+    /* test('Render Button', () => {
+        const button = component.container.querySelector('button');
+        expect(button).toBeTruthy();
+    }); */
+
+    /* test('should show Nueva Reservacion', () => {
+        expect(comp.find('h6').).toEqual('Información del vuelo'); 
+    }); */
+});
+
+
 
 /* test('test of FormReservations', () => {
         const component = renderWithRedux(<FormReservation />)

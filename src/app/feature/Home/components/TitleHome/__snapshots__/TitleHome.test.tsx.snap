@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Pruebas al componente TitleHome Snapshot Component 1`] = `
-<h1>
-   TravelCo 
-</h1>
-`;

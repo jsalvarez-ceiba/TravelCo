@@ -9,10 +9,15 @@ interface Action {
 
 describe('Pruebas al componente TitleHome', () => {
 
-    const Title = renderer.create(<TitleHome />).toJSON();
+    /* const Title = renderer.create(<TitleHome />).toJSON(); */
+    const component = mount(<TitleHome />);
 
-    test('Snapshot Component', () => {
+    /* test('Snapshot Component', () => {
         expect(Title).toMatchSnapshot();
+    }); */
+
+    test('Renderizar titulo', () => {
+        expect(component.find('h1').text()).toEqual('TravelCo');
     });
 });
 
