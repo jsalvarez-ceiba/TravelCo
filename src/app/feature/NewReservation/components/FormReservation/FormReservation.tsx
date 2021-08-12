@@ -5,16 +5,14 @@ import './FormReservation.style.scss';
 import { useDispatch } from 'react-redux';
 import { createReservation } from '../../../../core/redux/actions/reservationActions';
 import Swal from 'sweetalert2'
-
-
 const FormReservation = () => {
 
     const dispatch = useDispatch();
 
     const [cityOrigin, setCityOrigin] = useState('');
-    /* const [countryOrigin, setCountryOrigin] = useState(''); */
+    
     const [cityDestination, setCityDestination] = useState('');
-    /* const [countryDestination, setCountryDestination] = useState(''); */
+    
 
     const [name, setName] = useState('');
     const [lastname, setLastname] = useState('');
@@ -32,9 +30,6 @@ const FormReservation = () => {
 
     useEffect(() => {
         axiosIntance.get('http://localhost:8000/places').then(res => setstate(res.data));
-
-
-
     }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -70,23 +65,17 @@ const FormReservation = () => {
         }
     }
 
-    const dispatchAction = async () => {
-
+    const dispatchAction = () => {
         if (name !== '' && lastname !== '' && age !== '' && date !== '' && amount !== '') {
-            let random = Math.random() * (9999 - 1111) + 1111;
-
-            let nFlight = Math.round(random);
-    
-            let obj = {
-                flightNumber: `FL-${nFlight}`,
+            const obj = {
+                flightNumber: `FL-${1000}`,
                 cityOrigin,
                 cityDestination,
                 datetime: date,
                 price: '0'
             };
     
-    
-            await dispatch(createReservation(obj));
+            dispatch(createReservation(obj));
 
             Swal.fire('¡Se ha creado la reserva con exito!')
 
