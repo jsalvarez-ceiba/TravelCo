@@ -3,8 +3,8 @@ import { axiosIntance } from '../../../../core/config/AxiosConfig';
 import Input from '../../../../shared/components/Input/Input';
 import './FormReservation.style.scss';
 /* import { useDispatch } from 'react-redux'; */
-import { createReservation } from '../../../../core/redux/actions/reservationActions';
-import Swal from 'sweetalert2'
+/* import { createReservation } from '../../../../core/redux/actions/reservationActions';
+ */import Swal from 'sweetalert2'
 const FormReservation = () => {
 
     /* const dispatch = useDispatch(); */
@@ -74,6 +74,7 @@ const FormReservation = () => {
                 datetime: date,
                 price: '0'
             };
+            console.log(obj)
     
             /* dispatch(createReservation(obj)); */
 
