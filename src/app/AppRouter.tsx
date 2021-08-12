@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from '../app/feature/Home/pages/Home';
 import Navbar from './feature/Navbar/components/Navbar/Navbar';
 import Places from './feature/Places/pages/Places';
-import NewReservation from './feature/NewReservation/pages/NewReservation';
-import Search from './feature/Search/pages/Search';
+/* import NewReservation from './feature/NewReservation/pages/NewReservation';
+ */import Search from './feature/Search/pages/Search';
 
 export const AppRouter : React.FC = () => {
   return (
@@ -13,7 +13,7 @@ export const AppRouter : React.FC = () => {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/places" component={Places} />
-        <Route path="/new" component={NewReservation} />
+        {/* <Route path="/new" component={NewReservation} /> */}
         <Route path="/search" component={Search} />
       </Switch>
     </BrowserRouter>
