@@ -24,16 +24,15 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true
   },
   "exclude": [
     "node_modules",
     "build",
     "scripts",
     "acceptance-tests",
-    "webpack",
-    
-    
+    "webpack"
   ],
   "types": [
     "typePatches",

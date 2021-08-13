@@ -6,6 +6,7 @@
     "@trendmicro/react-sidenav": "^0.5.0",
     "@types/react-helmet": "^6.0.0",
     "axios": "^0.19.2",
+    "babel-jest": "^24.9.0",
     "cross-env": "^7.0.2",
     "formik": "^2.1.4",
     "jest": "^24.9.0",
@@ -28,9 +29,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false",
+    "test": "react-scripts test",
     "test:watch": "react-scripts test --watchAll",
-    "test:coverage": "npx react-scripts test --watchAll=false --coverage",
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
     "lint": "eslint --fix src/**/*.{ts,tsx}"
   },
   "eslintConfig": {
