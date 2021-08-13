@@ -27,7 +27,7 @@ pipeline{
       }
       stage('Test:Coverage') {
       steps {
-        sh 'npm run test:coverage --silent'
+        sh 'npm run test'
       }
     }
     stage('Build') {
