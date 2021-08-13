@@ -14,21 +14,13 @@ const ListReservations = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {/* {places.map((element:placesModel, index) => (
-                            <tr key={index.toString()}>
-                                <td> {index + 1} </td>
-                                <td> {element.city} </td>
-                                <td> {element.country} </td>
-                                <td> {element.flag} </td>
-                            </tr>
-                        ))} */}
                     </tbody>
                 </table>
             </div>
 
             
         </div>
-    )
-}
+    );
+};
 
 export default ListReservations;
