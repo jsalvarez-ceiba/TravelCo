@@ -27,7 +27,7 @@ pipeline{
       }
       stage('Test:Coverage') {
       steps {
-        sh 'npm run test:coverage'
+        sh 'npx react-scripts test --watchAll=false --coverage'
       }
     }
     stage('Build') {

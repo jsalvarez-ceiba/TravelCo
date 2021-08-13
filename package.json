@@ -30,7 +30,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --watchAll=false",
     "test:watch": "react-scripts test --watchAll",
-    "test:coverage": "react-scripts test --watchAll --coverage",
+    "test:coverage": "npx react-scripts test --watchAll=false --coverage",
     "lint": "eslint --fix src/**/*.{ts,tsx}"
   },
   "eslintConfig": {
