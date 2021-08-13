@@ -25,7 +25,7 @@ pipeline{
         ])
       }
       }
-      stage('Test') {
+      stage('Test:Coverage') {
       steps {
         sh 'npm run test:coverage'
       }
