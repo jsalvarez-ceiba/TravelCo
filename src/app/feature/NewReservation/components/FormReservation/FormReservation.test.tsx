@@ -25,7 +25,7 @@ describe('Test Form With React Testing Library', () => {
     expect(getByText('Nueva Reservación')).not.toBeNull();
   });
 
-  test('render inputs ', () => {
+  /* test('render inputs ', () => {
     store = mockStore(initialState);
     const component = render(
       <Provider store={store}>
@@ -33,10 +33,10 @@ describe('Test Form With React Testing Library', () => {
         <FormReservation />{' '}
       </Provider>
     );
-  });
+  }); */
 
   
-  test('Snapshot', () => {
+  /* test('Snapshot', () => {
     
     store = mockStore(initialState);
     const formEntry = renderer
@@ -51,7 +51,7 @@ describe('Test Form With React Testing Library', () => {
     
 
     expect(formEntry).toMatchSnapshot();
-  });
+  }); */
 
   test('Inputs', () => {
 

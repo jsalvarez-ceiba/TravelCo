@@ -13,10 +13,6 @@ describe('Render Home View', () => {
         expect(component).toBeTruthy();
     });
 
-    test('render form reservation ', () => {
-        const component = shallow(<NewReservation />);
-        const wrapper = component.contains('Nueva Reserva');
-        console.log(wrapper);
-    });
+    
     
 });
