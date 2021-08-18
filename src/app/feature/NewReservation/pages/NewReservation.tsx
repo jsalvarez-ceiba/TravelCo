@@ -1,7 +1,6 @@
 import React from 'react';
 import FormReservation from '../components/FormReservation/FormReservation';
 import './NewReservation.style.scss'
-import {RouteComponentProps} from 'react-router-dom';
 
 
 

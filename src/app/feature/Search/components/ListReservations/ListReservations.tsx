@@ -1,13 +1,12 @@
 import { urls } from 'app/core/api/endpoints';
 import { axiosIntance } from 'app/core/config/AxiosConfig';
-import { async } from 'q';
-import React, { InputHTMLAttributes, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   getReservations,
-  deleteReservation,
+  
 } from '../../../../core/api/reservations.service';
 import Input from '../../../../shared/components/Input/Input';
-import { Modal, ModalBody } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 
 interface ReservationStructure {
   id: string;
@@ -55,10 +54,10 @@ const ListReservations = () => {
     });
   };
 
-  const deleteFlight = (id: string) => {
+  /* const deleteFlight = (id: string) => {
     deleteReservation(id);
     getFlights();
-  };
+  }; */
 
   const searchKey = async () => {
     const resp = await axiosIntance.get(

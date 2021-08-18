@@ -5,8 +5,7 @@ import Input from '../../../../shared/components/Input/Input';
 import Swal from 'sweetalert2';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import './FormReservation.style.scss';
-import { Modal, ModalBody } from 'react-bootstrap';
-import { join } from 'path';
+import { Modal } from 'react-bootstrap';
 
 interface propsComponent extends RouteComponentProps {}
 
@@ -18,15 +17,12 @@ const year = dateNow.getFullYear() + 1;
 const FormReservation = (props: propsComponent) => {
   //const dispatch = useDispatch();
 
-  const [dateNow, setDateNow] = useState(`${year}-0${month}-${day}`);
-
   const [cityOrigin, setCityOrigin] = useState('');
   const [cityDestination, setCityDestination] = useState('');
   const [name, setName] = useState('');
   const [lastname, setLastname] = useState('');
   const [age, setAge] = useState(0);
   const [date, setDate] = useState('');
-  const [amount, setAmount] = useState('');
   const [birthdate, setBirthdate] = useState('');
   const [price, setPrice] = useState(0);
   const [newPrice, setNewprice] = useState(0);
@@ -54,7 +50,7 @@ const FormReservation = (props: propsComponent) => {
   useEffect(() => {
     getPlaces().then(res => setstate(res));
 
-    const date = `${year}-${month}-${day}`;
+    
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -69,11 +65,6 @@ const FormReservation = (props: propsComponent) => {
       case 'date':
         calculatePriceWithDate(e);
 
-        break;
-      case 'amount':
-        setAmount(e.target.value);
-        break;
-      case 'birthdate':
         break;
     }
   };
@@ -282,7 +273,6 @@ const FormReservation = (props: propsComponent) => {
               onChange={e => handleChange(e)}
             />
           </div>
-          
 
           <br />
 
