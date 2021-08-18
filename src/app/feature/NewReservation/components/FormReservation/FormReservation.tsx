@@ -21,6 +21,8 @@ const FormReservation = (props: propsComponent) => {
   const [amount, setAmount] = useState('');
   const [birthdate, setBirthdate] = useState('');
   const [price, setPrice] = useState(0);
+  const [newPrice, setNewprice] = useState(0);
+  const [message, setMessage] = useState('');
   const [summary, setSummary] = useState({
     flightNumber: '',
     cityOrigin: '',
@@ -127,7 +129,7 @@ const FormReservation = (props: propsComponent) => {
   };
 
   const dispatchAction = () => {
-    if (name !== '' && lastname !== '' && date !== '' && amount !== '') {
+    if (name !== '' && lastname !== '' && date !== '') {
       const nRandom = Math.random() * (9999 - 1000) + 1000;
       const nTrunc = Math.trunc(nRandom);
 
@@ -136,7 +138,7 @@ const FormReservation = (props: propsComponent) => {
         cityOrigin,
         cityDestination,
         datetime: date,
-        price: '0',
+        price: newPrice,
         name,
         lastname,
         birthdate,
@@ -155,12 +157,13 @@ const FormReservation = (props: propsComponent) => {
       setTimeout(() => {
         handleClose();
         createReservation(obj);
+        props.history.push('/search');
+        
       }, 5000);
-
+      
       //dispatch(createReservation(obj));
       console.log('props => ', props);
-      //props.history.push('/search');
-
+      
       Swal.fire('¡Se ha creado la reserva con exito!');
     } else {
       alert('Datos incompletos');
@@ -197,16 +200,25 @@ const FormReservation = (props: propsComponent) => {
     console.log('month => ', month);
 
     if (month >= 4 && month <= 7){
-      setPrice(20)
+      const plus = price * 0.2;
+      const newPrice = price + plus;
+      console.log('new Price => ', newPrice);
+      setMessage('plus');
+      setNewprice(newPrice);
+    } else if (month >= 9 && month <= 12){
+      const discount = price * 0.15;
+      const newPrice = price - discount;
+      console.log('new Price => ', newPrice);
+      setMessage('discount');
+      setNewprice(newPrice);
+    } else {
+      
+      setNewprice(price);
     }
 
   };
 
-  const chooseCityDestination = (city:string) => {
-
-
-
-  };
+  
 
   return (
     <>
@@ -275,13 +287,25 @@ const FormReservation = (props: propsComponent) => {
           <div className="form-group">
             <strong>Precio viaje : {price} COP </strong>
 
-            {/* <Input
-              value={amount}
-              name={'amount'}
-              type={'number'}
-              onChange={e => handleChange(e)}
-            /> */}
+            
           </div>
+
+          <div className="form-group">
+            <strong> Condiciones </strong>
+            {message === 'plus' ? (
+              <strong className="text-danger"> 20% x Temporada Alta </strong>
+
+            ) : message === 'discount' ? (
+              <strong className="text-success"> 15 % OFF  </strong>
+            ) : null}
+
+          </div>
+
+          <div className="form-group">
+            <strong>Total: {newPrice} </strong>
+
+          </div>
+
         </div>
       </div>
 
@@ -359,7 +383,7 @@ const FormReservation = (props: propsComponent) => {
 
           <hr />
 
-          <h4>Precio USD : 400</h4>
+          <h4>Precio USD : {newPrice}</h4>
         </Modal.Body>
       </Modal>
     </>

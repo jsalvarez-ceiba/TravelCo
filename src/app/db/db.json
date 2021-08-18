@@ -218,6 +218,18 @@
       "birthdate": "1997-04-17",
       "active": true,
       "id": 16
+    },
+    {
+      "flightNumber": "FL-8113",
+      "cityOrigin": "Medellín",
+      "cityDestination": "Galicia",
+      "datetime": "2021-10-23T20:51",
+      "price": 2550000,
+      "name": "JUAN",
+      "lastname": "ALVAREZ",
+      "birthdate": "1997-04-04",
+      "active": true,
+      "id": 17
     }
   ]
 }
