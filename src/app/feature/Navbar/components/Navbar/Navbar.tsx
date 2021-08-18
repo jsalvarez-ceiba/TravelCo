@@ -1,9 +1,10 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 
 import './Navbar.style.scss';
 
-/* const arraySidebar = [
+const arraySidebar = [
     {
         title: 'Home',
         path: '/',
@@ -20,7 +21,7 @@ import './Navbar.style.scss';
         title: 'Buscar reserva',
         path: '/search',
     }, 
-]; */
+];
 
 
 const Navbar : React.FC = () => {
@@ -32,15 +33,15 @@ const Navbar : React.FC = () => {
                     <h5 className="text-white h4">Bienvenido a TravelCo</h5>
                     
                     <br />
-                    {/* <ul>
+                    <ul>
                         {
                             arraySidebar.map((element, index) => (
-                                <Link className="link" to={element.path}>
+                                <Link key={index.toString()} className="link" to={element.path}>
                                     <li className="li" key={index.toString()}> {element.title} </li>
                                 </Link>
                             ))
                         }
-                    </ul> */}
+                    </ul>
                 </div>
             </div>
             <nav className="navbar navbar-dark bg-dark">

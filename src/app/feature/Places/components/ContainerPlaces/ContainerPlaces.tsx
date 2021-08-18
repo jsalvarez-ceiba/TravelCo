@@ -1,21 +1,25 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { axiosIntance } from '../../../../core/config/AxiosConfig';
+import './ContainerPlaces.style.scss';
 
-/* import medellin from '../../../../../assets/img/imgsPlaces/medellin.jpg';
+import medellin from '../../../../../assets/img/imgsPlaces/medellin.jpg';
 import bogota from '../../../../../assets/img/imgsPlaces/bogota.jpg';
 import cali from '../../../../../assets/img/imgsPlaces/cali.jpg';
-import cartagena from '../../../../../assets/img/imgsPlaces/Cartagena.jpg';
 import bucaramanga from '../../../../../assets/img/imgsPlaces/Bucaramanga.png';
-import miami from '../../../../../assets/img/imgsPlaces/miami.jpg'
-import chicago from '../../../../../assets/img/imgsPlaces/chicago.jpg'
-import boston from '../../../../../assets/img/imgsPlaces/boston.jpg'
-import la from '../../../../../assets/img/imgsPlaces/losangeles.jpg'
-import washington from '../../../../../assets/img/washington.jpg'
-import madrid from '../../../../../assets/img/madrid.jpg'
-import barcelona from '../../../../../assets/img/barcelona.jpg'
-import ibiza from '../../../../../assets/img/ibiza.jpg'
-import galicia from '../../../../../assets/img/galicia.jpg'
-import marbella from '../../../../../assets/img/marbella.jpg' */
+import cartagena from '../../../../../assets/img/imgsPlaces/Cartagena.jpg';
+import miami from '../../../../../assets/img/imgsPlaces/miami.jpg';
+import chicago from '../../../../../assets/img/imgsPlaces/chicago.jpg';
+import la from '../../../../../assets/img/imgsPlaces/losangeles.jpg';
+import boston from '../../../../../assets/img/imgsPlaces/boston.jpg';
+import washington from '../../../../../assets/img/imgsPlaces/washington.jpg';
+import barcelona from '../../../../../assets/img/imgsPlaces/barcelona.jpg';
+import madrid from '../../../../../assets/img/imgsPlaces/madrid.jpg';
+import marbella from '../../../../../assets/img/imgsPlaces/marbella.jpg';
+import galicia from '../../../../../assets/img/imgsPlaces/galicia.jpg';
+import ibiza from '../../../../../assets/img/imgsPlaces/ibiza.jpg';
+
+
+
 
 
 const ContainerPlaces = () => {
@@ -26,13 +30,13 @@ const ContainerPlaces = () => {
         flag: string
     }
 
-    /* const [places, setplaces] = useState([]); */
+    const [places, setplaces] = useState([]);
 
     useEffect(() => {
 
         axiosIntance.get('http://localhost:8000/places').then((res) => {
             console.log('res places => ', res.data);
-            /* setplaces(res.data); */
+            setplaces(res.data);
         });
 
         
@@ -41,10 +45,10 @@ const ContainerPlaces = () => {
 
     return (
         <div className="flexCenter">
-            {/* {
-                places.map((element:placesModel, index) => (
+            {
+                places.map((element:placesModel, index:number) => (
 
-                    <div className="card">
+                    <div key={index.toString()} className="card">
                         <img style={{width: 320, height: 250}} src={
                             element.city === 'Medellín' ? medellin :
                             element.city === 'Bogotá' ? bogota :
@@ -71,7 +75,7 @@ const ContainerPlaces = () => {
 
             
                 ))
-            } */}
+            } 
             
         </div>
     );

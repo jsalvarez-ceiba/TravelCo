@@ -1,16 +1,15 @@
 .backgroundFlyHome {
-    background-image: url('../../../assets/img/travel.jpg');
-    
-    height: auto;
+    background-image: url('../../../../assets/img/imgsPlaces/travel.jpg');
+    height: 100vh;
+}
+
+.card {
+    width: auto;
 }
 
     .flexCenter {
         display: flex;
-        flex-direction: column;
         justify-content: center;
-        align-items: center;
-        height: 100vh;
-        width: 100vw;
         flex-wrap: wrap;
     }
 
