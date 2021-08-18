@@ -7,6 +7,7 @@ import {
   deleteReservation,
 } from '../../../../core/api/reservations.service';
 import Input from '../../../../shared/components/Input/Input';
+import { Modal, ModalBody } from 'react-bootstrap';
 
 interface ReservationStructure {
   id: string;
@@ -15,9 +16,31 @@ interface ReservationStructure {
   cityDestination: string;
   datetime: string;
   price: string;
+  name: string;
+  lastname: string;
+  birthdate: string;
+  active: boolean;
 }
 
 const ListReservations = () => {
+  const [data, setData] = useState({
+    id: '',
+    flightNumber: '',
+    cityOrigin: '',
+    cityDestination: '',
+    datetime: '',
+    price: '',
+    name: '',
+    lastname: '',
+    birthdate: '',
+    active: true,
+  });
+
+  const [show, setShow] = useState(false);
+
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+
   const [state, setstate] = useState([]);
   const [key, setkey] = useState('');
 
@@ -52,6 +75,22 @@ const ListReservations = () => {
     setkey(e.target.value);
     if (e.target.value === '') {
       getFlights();
+    }
+  };
+
+  const cancelFlight = async () => {
+    try {
+      const resp = await axiosIntance.put(
+        `${urls.localhost}/reservations/${data.id}`,
+        { ...data , active: false },
+        {
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
+
+      console.log('resp update => ', resp);
+    } catch (err) {
+      throw new Error(err);
     }
   };
 
@@ -90,7 +129,7 @@ const ListReservations = () => {
               </div>
               <div>
                 <button onClick={() => searchKey()} className="btn btn-info">
-                    <i className="fas fa-search"></i>
+                  <i className="fas fa-search"></i>
                 </button>
               </div>
             </div>
@@ -103,19 +142,45 @@ const ListReservations = () => {
             <thead>
               <tr>
                 <th>#</th>
-                <th>Opt</th>
+                <th>Origen</th>
+                <th>Destino</th>
+                <th>Estado</th>
               </tr>
             </thead>
             <tbody>
               {state.map((element: ReservationStructure, index) => (
                 <tr key={index.toString()}>
                   <td> {element.flightNumber} </td>
-                  
-                  
-                  
+                  <td> {element.cityOrigin} </td>
+                  <td> {element.cityDestination} </td>
                   <td>
-                    {/* <button onClick={() => deleteFlight(element.id)}>delete</button> */}{' '}
-                    <button className="btn btn-info">Detalles</button>{' '}
+                    {
+                      element.active ? (
+                        <button
+                          onClick={() => {
+                            handleShow(); setData({
+                              id: element.id, 
+                              flightNumber: element.flightNumber, 
+                              cityOrigin: element.cityOrigin,
+                              cityDestination: element.cityDestination,
+                              datetime: element.datetime,
+                              price: element.price,
+                              name: element.name,
+                              lastname: element.lastname,
+                              birthdate: element.birthdate,
+                              active: element.active,
+                            });
+                          }}
+                          className="btn btn-success"
+                        >
+                          Activo
+                        </button>
+
+                      ) : (
+                        <button className="btn btn-danger">Cancelado</button>
+                      )
+                    }
+                    {/* <button onClick={() => deleteFlight(element.id)}>delete</button>{' '} */}
                   </td>
                 </tr>
               ))}
@@ -123,6 +188,21 @@ const ListReservations = () => {
           </table>
         </div>
       </div>
+      <Modal show={show}>
+        <Modal.Header>Estado del Vuelo</Modal.Header>
+        <Modal.Body>
+          <h5>¿Desea Cancelar este Vuelo?</h5>
+
+          <div style={{ display: 'flex', justifyContent: 'space-around' }}>
+            <button onClick={() => handleClose()} className="btn btn-secondary">
+              No
+            </button>
+            <button onClick={() => cancelFlight()} className="btn btn-danger">
+              Sí
+            </button>
+          </div>
+        </Modal.Body>
+      </Modal>
     </div>
   );
 };

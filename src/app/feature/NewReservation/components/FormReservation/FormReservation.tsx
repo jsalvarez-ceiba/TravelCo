@@ -367,7 +367,7 @@ const FormReservation = (props: propsComponent) => {
           )}
         </div>
       </div>
-      <Modal show={show}>
+      <Modal centered show={show}>
         <Modal.Header>Resumen de la Reserva</Modal.Header>
         <Modal.Body>
           <h5> Vuelo # {summary.flightNumber} </h5>
