@@ -8,22 +8,15 @@ import NewReservation from './NewReservation';
 
 describe('Render Home View', () => {
     
-    
     test('render new reservations', () => {
         const component = render(NewReservation);
         expect(component).toBeTruthy();
-        
     });
 
     test('render form reservation ', () => {
         const component = shallow(<NewReservation />);
         const wrapper = component.contains('Nueva Reserva');
         console.log(wrapper);
-
     });
-
-    test('render form', () => {
-        const component = shallow(<NewReservation />);
-        expect(component).toBeTruthy();
-    });
+    
 });
