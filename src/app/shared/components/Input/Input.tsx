@@ -6,9 +6,9 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     type:string;
 }
 
-const Input: FC<InputProps> = ( {value, name, type, ...rest} : InputProps ) => {
+const Input: FC<InputProps> = ( {value, name, type, max,...rest} : InputProps ) => {
     return (
-        <input value={value} name={name} {...rest} type={type} className="form-control" />
+        <input value={value} name={name} {...rest} type={type} max={max} className="form-control" />
     );
 };
 

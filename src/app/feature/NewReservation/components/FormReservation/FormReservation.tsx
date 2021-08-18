@@ -6,11 +6,19 @@ import Swal from 'sweetalert2';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import './FormReservation.style.scss';
 import { Modal, ModalBody } from 'react-bootstrap';
+import { join } from 'path';
 
 interface propsComponent extends RouteComponentProps {}
 
+const dateNow = new Date();
+const day = dateNow.getDate();
+const month = dateNow.getMonth() + 1;
+const year = dateNow.getFullYear() + 1;
+
 const FormReservation = (props: propsComponent) => {
   //const dispatch = useDispatch();
+
+  const [dateNow, setDateNow] = useState(`${year}-0${month}-${day}`);
 
   const [cityOrigin, setCityOrigin] = useState('');
   const [cityDestination, setCityDestination] = useState('');
@@ -44,8 +52,9 @@ const FormReservation = (props: propsComponent) => {
   const [state, setstate] = useState([]);
 
   useEffect(() => {
-    //axiosIntance.get('http://localhost:8000/places').then(res => setstate(res.data));
     getPlaces().then(res => setstate(res));
+
+    const date = `${year}-${month}-${day}`;
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -78,7 +87,7 @@ const FormReservation = (props: propsComponent) => {
         setCityDestination(e.target.value);
 
         switch (e.target.value) {
-          case 'Madrid': 
+          case 'Madrid':
             setPrice(3000000);
             break;
           case 'Barcelona':
@@ -144,7 +153,6 @@ const FormReservation = (props: propsComponent) => {
         birthdate,
         active: true,
       };
-      console.log(obj);
       handleShow();
       setSummary({
         flightNumber: obj.flightNumber,
@@ -158,12 +166,10 @@ const FormReservation = (props: propsComponent) => {
         handleClose();
         createReservation(obj);
         props.history.push('/search');
-        
       }, 5000);
-      
+
       //dispatch(createReservation(obj));
-      console.log('props => ', props);
-      
+
       Swal.fire('¡Se ha creado la reserva con exito!');
     } else {
       alert('Datos incompletos');
@@ -182,8 +188,6 @@ const FormReservation = (props: propsComponent) => {
       years--;
     }
 
-    console.log('years old => ', years);
-
     setBirthdate(date.target.value);
     setAge(years);
   };
@@ -197,28 +201,20 @@ const FormReservation = (props: propsComponent) => {
 
     const month = reservationDate.getMonth() + 1;
 
-    console.log('month => ', month);
-
-    if (month >= 4 && month <= 7){
+    if (month >= 4 && month <= 7) {
       const plus = price * 0.2;
       const newPrice = price + plus;
-      console.log('new Price => ', newPrice);
       setMessage('plus');
       setNewprice(newPrice);
-    } else if (month >= 9 && month <= 12){
+    } else if (month >= 9 && month <= 12) {
       const discount = price * 0.15;
       const newPrice = price - discount;
-      console.log('new Price => ', newPrice);
       setMessage('discount');
       setNewprice(newPrice);
     } else {
-      
       setNewprice(price);
     }
-
   };
-
-  
 
   return (
     <>
@@ -275,9 +271,14 @@ const FormReservation = (props: propsComponent) => {
           <div className="form-group">
             <strong>Fecha y Hora</strong>
             <Input
+              max={
+                month < 10
+                  ? `${year}-0${month}-${day}`
+                  : `${year}-${month}-${day}`
+              }
               value={date}
               name={'date'}
-              type={'datetime-local'}
+              type={'date'}
               onChange={e => handleChange(e)}
             />
           </div>
@@ -286,26 +287,20 @@ const FormReservation = (props: propsComponent) => {
 
           <div className="form-group">
             <strong>Precio viaje : {price} COP </strong>
-
-            
           </div>
 
           <div className="form-group">
             <strong> Condiciones </strong>
             {message === 'plus' ? (
               <strong className="text-danger"> 20% x Temporada Alta </strong>
-
             ) : message === 'discount' ? (
-              <strong className="text-success"> 15 % OFF  </strong>
+              <strong className="text-success"> 15 % OFF </strong>
             ) : null}
-
           </div>
 
           <div className="form-group">
             <strong>Total: {newPrice} </strong>
-
           </div>
-
         </div>
       </div>
 
