@@ -282,6 +282,7 @@ const FormReservation = (props: propsComponent) => {
               onChange={e => handleChange(e)}
             />
           </div>
+          
 
           <br />
 
