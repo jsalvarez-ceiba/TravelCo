@@ -1,4 +1,4 @@
-export interface Reservation {
+export default interface Reservation {
     /* id:string; */
     flightNumber:string;
     cityOrigin:string;

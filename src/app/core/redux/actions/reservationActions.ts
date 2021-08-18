@@ -1,4 +1,4 @@
-import { Reservation } from '../../../feature/NewReservation/models/Reservation.model';
+import Reservation from '../../../feature/NewReservation/models/Reservation.model';
 import {axiosIntance} from '../../config/AxiosConfig';
 import {urls} from '../../api/endpoints';
 
@@ -16,8 +16,8 @@ export const createReservation = (reservation:Reservation) => {
     };
 };
 
-export const getReservations = () => {
-    return async () => {
+export const getReservations = async () => {
+    
         try {
             const res = await axiosIntance.get(`${urls.localhost}/reservations`, {
                 headers: {'Content-Type': 'application/json'}
@@ -27,7 +27,7 @@ export const getReservations = () => {
         } catch (err) {
             throw new Error(err);
         }
-    };
+    
 };
 
 export const deleteReservation = (id:string) => {

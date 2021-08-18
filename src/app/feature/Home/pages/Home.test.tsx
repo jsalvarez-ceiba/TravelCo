@@ -1,11 +1,11 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
-import {render, cleanup} from '@testing-library/react'
-import Home from './Home'
+import {cleanup, render} from '@testing-library/react';
+import Home from './Home';
 
-afterEach(cleanup)
+afterEach(cleanup);
 
 test('Render Home View', () => {
-    const component = render(<Home/>)
+    const component = render(<Home/>);
     expect(component).toBeTruthy();
-})
+});

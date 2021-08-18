@@ -33,7 +33,7 @@
         "prefer-const": "error",
         "no-debugger": "error",
         "no-with": "error",
-        "sort-imports": "error"
+        "sort-imports": "off"
     },
     "settings": {
         "react": {

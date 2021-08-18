@@ -1,10 +1,9 @@
 import { urls } from 'app/core/api/endpoints';
 import { axiosIntance } from 'app/core/config/AxiosConfig';
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { getReservations } from '../../../../core/redux/actions/reservationActions';
 import Input from '../../../../shared/components/Input/Input';
 import { Modal } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
 
 interface ReservationStructure {
   id: string;
@@ -20,7 +19,7 @@ interface ReservationStructure {
 }
 
 const ListReservations = () => {
-  const dispatch = useDispatch();
+  
 
   const [data, setData] = useState({
     id: '',
@@ -48,11 +47,11 @@ const ListReservations = () => {
 
   const getFlights = useCallback(async () => {
     let arrayData: any = [];
-    const resp = await dispatch(getReservations());
+    const resp = await getReservations();
     console.log('resp state => ', resp);
     arrayData = resp;
     setstate(arrayData);
-  }, [dispatch]);
+  }, []);
   
 
   const searchKey = async () => {

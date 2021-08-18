@@ -1,14 +1,25 @@
-import {render} from '@testing-library/react';
-import reservationActions from './reservationActions';
+import {getReservations, deleteReservation, createReservation} from './reservationActions';
+import Reservation from '../../../feature/NewReservation/models/Reservation.model';
 
 describe('test actions', () => {
 
-    test('should actions', () => {
+    
 
-        const obj = render(reservationActions)
-        expect(obj).toBeTruthy();
-        
+    test('test get reservations', async () => {
+
+        expect(getReservations()).toBeTruthy();
+
+    });
+
+    test('test delete reservations', () => {
+        expect(deleteReservation('1')).toBeTruthy();
+    });
+
+    test('test create reservations', () => {
+        expect(createReservation).toBeTruthy();
+
     });
     
-    
+
+
 });

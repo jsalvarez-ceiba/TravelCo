@@ -1,68 +1,70 @@
+import React from 'react';
+import { render, screen } from '@testing-library/react';
+import renderer from 'react-test-renderer';
 
-
-import {render} from '@testing-library/react';
 import FormReservation from './FormReservation';
-/* import {prettyDOM} from '@testing-library/dom' */
-/* import {createStore} from 'redux'
-import {Provider} from 'react-redux' */
-/* import {mount} from 'enzyme'; */
 
- /* afterEach(cleanup) */
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
 
-/* const startingState = {}
+import { mount } from 'enzyme';
 
-interface Action {
-    type:string
-} */
+describe('Test Form With React Testing Library', () => {
+  const initialState = { output: 10 };
+  const mockStore = configureStore();
+  let store, wrapper;
 
-/* function reducer (state = startingState, action : Action) {
-    switch (action.type) {
-        default:
-            return state;
+  test('Render component', () => {
+    store = mockStore(initialState);
+    const { getByText } = render(
+      <Provider store={store}>
+        {' '}
+        <FormReservation />{' '}
+      </Provider>
+    );
+    expect(getByText('Nueva Reservación')).not.toBeNull();
+  });
 
-    }
-} */
+  test('render inputs ', () => {
+    store = mockStore(initialState);
+    const component = render(
+      <Provider store={store}>
+        {' '}
+        <FormReservation />{' '}
+      </Provider>
+    );
+  });
+
+  
+  test('Snapshot', () => {
+    
+    store = mockStore(initialState);
+    const formEntry = renderer
+      .create(
+        <Provider store={store}>
+          {' '}
+          <FormReservation />{' '}
+        </Provider>
+      )
+      .toJSON();
+
+    
+
+    expect(formEntry).toMatchSnapshot();
+  });
+
+  test('Inputs', () => {
+
+    store = mockStore(initialState);
 
 
+    const page = mount(
+      <Provider store={store}>
+          {' '}
+          <FormReservation />{' '}
+        </Provider>
+    );
 
-/* function renderWithRedux (component:any, {store = createStore(reducer, startingState)} = {}) {
-    return {
-        ...render(<Provider store={store}>{component}</Provider> )
-    }
-}  */
-
-describe('Test Form', () => {
-
-    test('test form', () => {
-
-        const obj = render(FormReservation);
-        expect(obj).toBeTruthy();
-    });
+    expect(page.find('Input').length).toEqual(4);
+  });
 });
-
-/* const component = renderWithRedux( <FormReservation /> ); */
-
-/* const comp = mount(<FormReservation/>); */
-
-
-/* test('FormReservation Render', () => {
-   renderWithRedux( <FormReservation /> )
-}); */
-
-/* test('Render Button', () => {
-    const button = component.container.querySelector('button');
-    expect(button).toBeTruthy();
-}); */
-
-/* test('should show Nueva Reservacion', () => {
-    expect(comp.find('h6').).toEqual('Información del vuelo'); 
-}); */
-
-
-/* test('test of FormReservations', () => {
-        const component = renderWithRedux(<FormReservation />)
-        const select = component.container.querySelector('select')
-        expect(select).toBeTruthy()
-
-})  */
-

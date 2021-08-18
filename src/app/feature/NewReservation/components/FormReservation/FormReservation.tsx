@@ -3,19 +3,23 @@ import { getPlaces } from '../../../../core/api/places.service';
 import Input from '../../../../shared/components/Input/Input';
 import Swal from 'sweetalert2';
 import { createReservation } from '../../../../core/redux/actions/reservationActions';
-import { withRouter, RouteComponentProps } from 'react-router-dom';
 import './FormReservation.style.scss';
 import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
-interface propsComponent extends RouteComponentProps {}
+/* interface propsComponent extends RouteComponentProps {
+  history: {};
+  location: {};
+  match: {};
+
+} */
 
 const dateNow = new Date();
 const day = dateNow.getDate();
 const month = dateNow.getMonth() + 1;
 const year = dateNow.getFullYear() + 1;
 
-const FormReservation = (props: propsComponent) => {
+const FormReservation = () => {
   const dispatch = useDispatch();
 
   const [cityOrigin, setCityOrigin] = useState('');
@@ -154,11 +158,11 @@ const FormReservation = (props: propsComponent) => {
 
       setTimeout(() => {
         handleClose();
-        dispatch(createReservation(obj));
-        props.history.push('/search');
+        /* createReservation(obj); */
+        /* props.history.push('/search'); */
       }, 5000);
 
-      //dispatch(createReservation(obj));
+      dispatch(createReservation(obj));
 
       Swal.fire('¡Se ha creado la reserva con exito!');
     } else {
@@ -375,4 +379,4 @@ const FormReservation = (props: propsComponent) => {
   );
 };
 
-export default withRouter(FormReservation);
+export default FormReservation;
