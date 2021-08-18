@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { getPlaces } from '../../../../core/api/places.service';
-import { createReservation } from '../../../../core/api/reservations.service';
 import Input from '../../../../shared/components/Input/Input';
 import Swal from 'sweetalert2';
+import { createReservation } from '../../../../core/redux/actions/reservationActions';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
 import './FormReservation.style.scss';
 import { Modal } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 
 interface propsComponent extends RouteComponentProps {}
 
@@ -15,7 +16,7 @@ const month = dateNow.getMonth() + 1;
 const year = dateNow.getFullYear() + 1;
 
 const FormReservation = (props: propsComponent) => {
-  //const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const [cityOrigin, setCityOrigin] = useState('');
   const [cityDestination, setCityDestination] = useState('');
@@ -49,8 +50,6 @@ const FormReservation = (props: propsComponent) => {
 
   useEffect(() => {
     getPlaces().then(res => setstate(res));
-
-    
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -155,7 +154,7 @@ const FormReservation = (props: propsComponent) => {
 
       setTimeout(() => {
         handleClose();
-        createReservation(obj);
+        dispatch(createReservation(obj));
         props.history.push('/search');
       }, 5000);
 
@@ -227,7 +226,7 @@ const FormReservation = (props: propsComponent) => {
               id=""
               className="form-control"
             >
-              <option value="">Selecciona una opción</option>
+              <option value="">Seleccionar origen</option>
               {state.map((element: Places, index) => (
                 <option key={index.toString()} value={element.city}>
                   {' '}
@@ -247,7 +246,7 @@ const FormReservation = (props: propsComponent) => {
               id=""
               className="form-control"
             >
-              <option value="">Selecciona una opción</option>
+              <option value="">Seleccionar destino</option>
               {state.map((element: Places, index) => (
                 <option key={index.toString()} value={element.city}>
                   {' '}

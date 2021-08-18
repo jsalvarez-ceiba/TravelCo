@@ -1,12 +1,10 @@
 import { urls } from 'app/core/api/endpoints';
 import { axiosIntance } from 'app/core/config/AxiosConfig';
-import React, { useEffect, useState } from 'react';
-import {
-  getReservations,
-  
-} from '../../../../core/api/reservations.service';
+import React, { useEffect, useState, useCallback } from 'react';
+import { getReservations } from '../../../../core/redux/actions/reservationActions';
 import Input from '../../../../shared/components/Input/Input';
 import { Modal } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 
 interface ReservationStructure {
   id: string;
@@ -22,6 +20,8 @@ interface ReservationStructure {
 }
 
 const ListReservations = () => {
+  const dispatch = useDispatch();
+
   const [data, setData] = useState({
     id: '',
     flightNumber: '',
@@ -43,21 +43,17 @@ const ListReservations = () => {
   const [state, setstate] = useState([]);
   const [key, setkey] = useState('');
 
-  useEffect(() => {
-    getFlights();
-  }, []);
+  
+  
 
-  const getFlights = () => {
-    getReservations().then(res => {
-      setstate(res);
-      console.log('data => ', res);
-    });
-  };
-
-  /* const deleteFlight = (id: string) => {
-    deleteReservation(id);
-    getFlights();
-  }; */
+  const getFlights = useCallback(async () => {
+    let arrayData: any = [];
+    const resp = await dispatch(getReservations());
+    console.log('resp state => ', resp);
+    arrayData = resp;
+    setstate(arrayData);
+  }, [dispatch]);
+  
 
   const searchKey = async () => {
     const resp = await axiosIntance.get(
@@ -81,17 +77,22 @@ const ListReservations = () => {
     try {
       const resp = await axiosIntance.put(
         `${urls.localhost}/reservations/${data.id}`,
-        { ...data , active: false },
+        { ...data, active: false },
         {
           headers: { 'Content-Type': 'application/json' },
         }
       );
 
       console.log('resp update => ', resp);
+      handleClose();
+      getFlights();
     } catch (err) {
       throw new Error(err);
     }
   };
+  useEffect(() => {
+    getFlights();
+  }, [getFlights]);
 
   return (
     <div>
@@ -134,32 +135,34 @@ const ListReservations = () => {
             </div>
           </div>
         </div>
-        <div
-          style={{ display: 'flex', justifyContent: 'center', width: '100%' }}
-        >
-          <table className="opacity table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Origen</th>
-                <th>Destino</th>
-                <th>Estado</th>
-              </tr>
-            </thead>
-            <tbody>
-              {state.map((element: ReservationStructure, index) => (
-                <tr key={index.toString()}>
-                  <td> {element.flightNumber} </td>
-                  <td> {element.cityOrigin} </td>
-                  <td> {element.cityDestination} </td>
-                  <td>
-                    {
-                      element.active ? (
+
+        {state.length !== 0 ? (
+          <div
+            style={{ display: 'flex', justifyContent: 'center', width: '100%' }}
+          >
+            <table className="opacity table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Origen</th>
+                  <th>Destino</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                {state.map((element: ReservationStructure, index) => (
+                  <tr key={index.toString()}>
+                    <td> {element.flightNumber} </td>
+                    <td> {element.cityOrigin} </td>
+                    <td> {element.cityDestination} </td>
+                    <td>
+                      {element.active ? (
                         <button
                           onClick={() => {
-                            handleShow(); setData({
-                              id: element.id, 
-                              flightNumber: element.flightNumber, 
+                            handleShow();
+                            setData({
+                              id: element.id,
+                              flightNumber: element.flightNumber,
                               cityOrigin: element.cityOrigin,
                               cityDestination: element.cityDestination,
                               datetime: element.datetime,
@@ -174,18 +177,24 @@ const ListReservations = () => {
                         >
                           Activo
                         </button>
-
                       ) : (
                         <button className="btn btn-danger">Cancelado</button>
-                      )
-                    }
-                    {/* <button onClick={() => deleteFlight(element.id)}>delete</button>{' '} */}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+                      )}
+                      {/* <button onClick={() => deleteFlight(element.id)}>delete</button>{' '} */}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+        ): (
+          <div className="d-flex justify-content-center">
+
+              <h4 className="text-white">NO HAY RESERVAS EN EL MOMENTO</h4>
+          </div>
+        )}
+
       </div>
       <Modal show={show}>
         <Modal.Header>Estado del Vuelo</Modal.Header>

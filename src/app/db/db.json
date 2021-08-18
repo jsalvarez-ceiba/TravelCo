@@ -93,16 +93,16 @@
   ],
   "reservations": [
     {
-      "id": 2,
-      "flightNumber": "FL-5246",
+      "flightNumber": "FL-5171",
       "cityOrigin": "Medellín",
-      "cityDestination": "Miami",
-      "datetime": "2021-09-20T21:37",
-      "price": 1700000,
-      "name": "JUAN",
+      "cityDestination": "Bogotá",
+      "datetime": "2021-09-24",
+      "price": 1530000,
+      "name": "SEBASTIAN",
       "lastname": "ALVAREZ",
       "birthdate": "1997-04-04",
-      "active": false
+      "active": true,
+      "id": 1
     }
   ]
 }
