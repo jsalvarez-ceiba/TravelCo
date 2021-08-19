@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import { axiosIntance } from '../../../../core/config/AxiosConfig';
+import React, {useEffect/* , useState */} from 'react';
+/* import { axiosIntance } from '../../../../core/config/AxiosConfig'; */
 import './ContainerPlaces.style.scss';
 
-import medellin from '../../../../../assets/img/imgsPlaces/medellin.jpg';
+/* import medellin from '../../../../../assets/img/imgsPlaces/medellin.jpg';
 import bogota from '../../../../../assets/img/imgsPlaces/bogota.jpg';
 import cali from '../../../../../assets/img/imgsPlaces/cali.jpg';
 import bucaramanga from '../../../../../assets/img/imgsPlaces/Bucaramanga.png';
@@ -16,7 +16,7 @@ import barcelona from '../../../../../assets/img/imgsPlaces/barcelona.jpg';
 import madrid from '../../../../../assets/img/imgsPlaces/madrid.jpg';
 import marbella from '../../../../../assets/img/imgsPlaces/marbella.jpg';
 import galicia from '../../../../../assets/img/imgsPlaces/galicia.jpg';
-import ibiza from '../../../../../assets/img/imgsPlaces/ibiza.jpg';
+import ibiza from '../../../../../assets/img/imgsPlaces/ibiza.jpg'; */
 
 
 
@@ -24,19 +24,19 @@ import ibiza from '../../../../../assets/img/imgsPlaces/ibiza.jpg';
 
 const ContainerPlaces = () => {
 
-    interface placesModel {
+    /* interface placesModel {
         city:string,
         country:string,
         flag: string
-    }
+    } */
 
-    const [places, setplaces] = useState([]);
+    /* const [places, setplaces] = useState([]); */
 
     useEffect(() => {
 
-        axiosIntance.get('http://localhost:8000/places').then((res) => {
+        /* axiosIntance.get('http://localhost:8000/places').then((res) => {
             setplaces(res.data);
-        });
+        }); */
 
         
     }, []);
@@ -44,7 +44,7 @@ const ContainerPlaces = () => {
 
     return (
         <div className="flexCenter">
-            {
+           {/*  {
                 places.map((element:placesModel, index:number) => (
 
                     <div key={index.toString()} className="card">
@@ -74,7 +74,7 @@ const ContainerPlaces = () => {
 
             
                 ))
-            } 
+            }  */}
             
         </div>
     );
