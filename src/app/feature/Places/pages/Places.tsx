@@ -1,16 +1,12 @@
 import React, { useEffect } from 'react';
 import ContainerPlaces from '../components/ContainerPlaces/ContainerPlaces';
 
-//import { useSelector } from 'react-redux';
-//import { NotesState } from 'app/core/redux/reducers/reservationReducer';
 
 
 
 const Places = () => {
-    /* const notes = useSelector<NotesState, NotesState['notes']>((state) => state.notes); */
 
     useEffect(() => {
-        /* console.log('notes : ', notes); */
     }, []);
 
     return (

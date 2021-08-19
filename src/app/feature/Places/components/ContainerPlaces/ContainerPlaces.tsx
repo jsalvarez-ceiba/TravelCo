@@ -35,7 +35,6 @@ const ContainerPlaces = () => {
     useEffect(() => {
 
         axiosIntance.get('http://localhost:8000/places').then((res) => {
-            console.log('res places => ', res.data);
             setplaces(res.data);
         });
 

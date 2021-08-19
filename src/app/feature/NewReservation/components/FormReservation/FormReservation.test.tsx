@@ -7,7 +7,7 @@ import FormReservation from './FormReservation';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 
 describe('Test Form With React Testing Library', () => {
   const initialState = { output: 10 };
@@ -25,46 +25,26 @@ describe('Test Form With React Testing Library', () => {
     expect(getByText('Nueva Reservación')).not.toBeNull();
   });
 
-  /* test('render inputs ', () => {
-    store = mockStore(initialState);
-    const component = render(
-      <Provider store={store}>
-        {' '}
-        <FormReservation />{' '}
-      </Provider>
-    );
-  }); */
-
-  
-  /* test('Snapshot', () => {
-    
-    store = mockStore(initialState);
-    const formEntry = renderer
-      .create(
-        <Provider store={store}>
-          {' '}
-          <FormReservation />{' '}
-        </Provider>
-      )
-      .toJSON();
-
-    
-
-    expect(formEntry).toMatchSnapshot();
-  }); */
-
   test('Inputs', () => {
-
     store = mockStore(initialState);
-
-
     const page = mount(
       <Provider store={store}>
-          {' '}
-          <FormReservation />{' '}
-        </Provider>
+        
+        <FormReservation />
+      </Provider>
     );
-
     expect(page.find('Input').length).toEqual(4);
   });
+
+  test('Snapshot => ', () => {
+
+    store = mockStore(initialState);
+    const wrapper = shallow( <Provider store={store}>
+        
+      <FormReservation />
+    </Provider> );
+    expect(wrapper).toMatchSnapshot();
+
+  });
+
 });

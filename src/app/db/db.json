@@ -103,6 +103,18 @@
       "birthdate": "1997-04-04",
       "active": true,
       "id": 1
+    },
+    {
+      "flightNumber": "FL-3571",
+      "cityOrigin": "Medellín",
+      "cityDestination": "Ibiza",
+      "datetime": "2022-06-24",
+      "price": 3600000,
+      "name": "JUAN",
+      "lastname": "ALVAREZ",
+      "birthdate": "1997-04-04",
+      "active": true,
+      "id": 2
     }
   ]
 }

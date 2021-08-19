@@ -1,10 +1,10 @@
 export default interface Reservation {
-    /* id:string; */
+    id:string;
     flightNumber:string;
     cityOrigin:string;
     cityDestination:string;
     datetime: string;
-    price:number;
+    price:string;
     name:string;
     lastname:string;
     birthdate:string;

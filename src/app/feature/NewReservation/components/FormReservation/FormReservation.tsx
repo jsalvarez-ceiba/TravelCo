@@ -1,23 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { getPlaces } from '../../../../core/api/places.service';
 import Input from '../../../../shared/components/Input/Input';
+import Select from '../../../../shared/components/Select/Select';
 import Swal from 'sweetalert2';
 import { createReservation } from '../../../../core/redux/actions/reservationActions';
 import './FormReservation.style.scss';
 import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-
-/* interface propsComponent extends RouteComponentProps {
-  history: {};
-  location: {};
-  match: {};
-
-} */
+import { onSelected } from '../utils/onSelected';
 
 const dateNow = new Date();
 const day = dateNow.getDate();
 const month = dateNow.getMonth() + 1;
 const year = dateNow.getFullYear() + 1;
+
+const Age18 = 18;
+const month10 = 10;
+
+const maxRange = 9999;
+const minRange = 1000;
+
+const time = 5000;
 
 const FormReservation = () => {
   const dispatch = useDispatch();
@@ -72,68 +75,16 @@ const FormReservation = () => {
     }
   };
 
-  const onSelected = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    switch (e.target.name) {
-      case 'origin':
-        setCityOrigin(e.target.value);
-        break;
-      case 'destination':
-        setCityDestination(e.target.value);
-
-        switch (e.target.value) {
-          case 'Madrid':
-            setPrice(3000000);
-            break;
-          case 'Barcelona':
-            setPrice(3000000);
-            break;
-          case 'Marbella':
-            setPrice(3000000);
-            break;
-          case 'Galicia':
-            setPrice(3000000);
-            break;
-          case 'Ibiza':
-            setPrice(3000000);
-            break;
-          case 'Miami':
-            setPrice(2000000);
-            break;
-          case 'Chicago':
-            setPrice(2000000);
-            break;
-          case 'Los Angeles':
-            setPrice(2000000);
-            break;
-          case 'Boston':
-            setPrice(2000000);
-            break;
-          case 'Washington':
-            setPrice(2000000);
-            break;
-          case 'Medellín':
-            setPrice(1800000);
-            break;
-          case 'Bogotá':
-            setPrice(1800000);
-            break;
-          case 'Cali':
-            setPrice(1800000);
-            break;
-          case 'Bucaramanga':
-            setPrice(1800000);
-            break;
-          case 'Cartagena':
-            setPrice(1800000);
-            break;
-        }
-        break;
-    }
+  const onHandleSelected = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const { price, cityOrigin, cityDestination } = onSelected(e);
+    setCityOrigin(cityOrigin);
+    setCityDestination(cityDestination);
+    setPrice(price);
   };
 
   const dispatchAction = () => {
     if (name !== '' && lastname !== '' && date !== '') {
-      const nRandom = Math.random() * (9999 - 1000) + 1000;
+      const nRandom = Math.random() * (maxRange - minRange) + minRange;
       const nTrunc = Math.trunc(nRandom);
 
       const obj = {
@@ -160,7 +111,7 @@ const FormReservation = () => {
         handleClose();
         /* createReservation(obj); */
         /* props.history.push('/search'); */
-      }, 5000);
+      }, time);
 
       dispatch(createReservation(obj));
 
@@ -172,13 +123,13 @@ const FormReservation = () => {
 
   const calculateAge = (date: React.ChangeEvent<HTMLInputElement>) => {
     //setBirthdate(date);
-    const birthdate = new Date(date.target.value);
+    const birth = new Date(date.target.value);
     const now = new Date();
-    let years = now.getFullYear() - birthdate.getFullYear();
+    let years = now.getFullYear() - birth.getFullYear();
 
-    birthdate.setFullYear(now.getFullYear());
+    birth.setFullYear(now.getFullYear());
 
-    if (now < birthdate) {
+    if (now < birth) {
       years--;
     }
 
@@ -189,22 +140,30 @@ const FormReservation = () => {
   const calculatePriceWithDate = (
     date: React.ChangeEvent<HTMLInputElement>
   ) => {
+    const april = 4;
+    const july = 7;
+    const november = 9;
+    const december = 12;
+
+    const increment = 0.2;
+    const disc = 0.15;
+
     setDate(date.target.value);
 
     const reservationDate = new Date(date.target.value);
 
     const month = reservationDate.getMonth() + 1;
 
-    if (month >= 4 && month <= 7) {
-      const plus = price * 0.2;
-      const newPrice = price + plus;
+    if (month >= april && month <= july) {
+      const plus = price * increment;
+      const newP = price + plus;
       setMessage('plus');
-      setNewprice(newPrice);
-    } else if (month >= 9 && month <= 12) {
-      const discount = price * 0.15;
-      const newPrice = price - discount;
+      setNewprice(newP);
+    } else if (month >= november && month <= december) {
+      const discount = price * disc;
+      const newP = price - discount;
       setMessage('discount');
-      setNewprice(newPrice);
+      setNewprice(newP);
     } else {
       setNewprice(price);
     }
@@ -224,40 +183,25 @@ const FormReservation = () => {
 
           <div className="form-group">
             <strong>Origen</strong>
-            <select
-              onChange={e => onSelected(e)}
+            <Select
+              onChange={e => onHandleSelected(e)}
               name="origin"
-              id=""
-              className="form-control"
-            >
-              <option value="">Seleccionar origen</option>
-              {state.map((element: Places, index) => (
-                <option key={index.toString()} value={element.city}>
-                  {' '}
-                  {element.city}{' '}
-                </option>
-              ))}
-            </select>
+              title="Origen"
+              data={state}
+            />
           </div>
 
           <br />
 
           <div className="form-group">
             <strong>Destino</strong>
-            <select
-              onChange={e => onSelected(e)}
+
+            <Select
+              onChange={e => onHandleSelected(e)}
               name="destination"
-              id=""
-              className="form-control"
-            >
-              <option value="">Seleccionar destino</option>
-              {state.map((element: Places, index) => (
-                <option key={index.toString()} value={element.city}>
-                  {' '}
-                  {element.city}{' '}
-                </option>
-              ))}
-            </select>
+              title="Destino"
+              data={state}
+            />
           </div>
 
           <br />
@@ -266,7 +210,7 @@ const FormReservation = () => {
             <strong>Fecha y Hora</strong>
             <Input
               max={
-                month < 10
+                month < month10
                   ? `${year}-0${month}-${day}`
                   : `${year}-${month}-${day}`
               }
@@ -340,7 +284,7 @@ const FormReservation = () => {
 
           <br />
 
-          {age >= 18 ? (
+          {age >= Age18 ? (
             <div>
               <button
                 className="btn btn-info text-white mt-2"

@@ -7,7 +7,7 @@ export const createReservation = (reservation:Reservation) => {
         try {
             await axiosIntance.post( `${urls.localhost}/reservations`, reservation, {
                 headers: {'Content-Type': 'application/json'}
-            }).then((res) => console.log(res));
+            });
     
         } catch (err) {
             throw new Error(err);
@@ -46,6 +46,43 @@ export const deleteReservation = (id:string) => {
 
     };
 };
+
+export const cancelReservation = (data : Reservation) => {
+    return async () => {
+        try {
+
+            await axiosIntance.put(
+                `${urls.localhost}/reservations/${data.id}`,
+                { ...data, active: false },
+                {
+                  headers: { 'Content-Type': 'application/json' },
+                }
+              );
+
+        } catch (err) {
+            throw new Error(err);
+        }
+    };
+};
+
+export const searchKey = async (key:string) => {
+    
+        try {
+
+            const resp = await axiosIntance.get(
+                `${urls.localhost}/reservations?flightNumber=${key}`,
+                {
+                  headers: { 'Content-Type': 'application/json' },
+                }
+              );
+            return resp.data;
+        } catch (err) {
+            throw new Error(err);
+        }
+    
+};
+
+
 
 
 

@@ -1,9 +1,10 @@
 import { urls } from 'app/core/api/endpoints';
 import { axiosIntance } from 'app/core/config/AxiosConfig';
 import React, { useCallback, useEffect, useState } from 'react';
-import { getReservations } from '../../../../core/redux/actions/reservationActions';
+import { cancelReservation, getReservations, searchKey } from '../../../../core/redux/actions/reservationActions';
 import Input from '../../../../shared/components/Input/Input';
 import { Modal } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 
 interface ReservationStructure {
   id: string;
@@ -19,7 +20,8 @@ interface ReservationStructure {
 }
 
 const ListReservations = () => {
-  
+
+  const dispatch = useDispatch();
 
   const [data, setData] = useState({
     id: '',
@@ -42,27 +44,18 @@ const ListReservations = () => {
   const [state, setstate] = useState([]);
   const [key, setkey] = useState('');
 
-  
-  
-
   const getFlights = useCallback(async () => {
     let arrayData: any = [];
     const resp = await getReservations();
-    console.log('resp state => ', resp);
     arrayData = resp;
     setstate(arrayData);
   }, []);
-  
 
-  const searchKey = async () => {
-    const resp = await axiosIntance.get(
-      `${urls.localhost}/reservations?flightNumber=${key}`,
-      {
-        headers: { 'Content-Type': 'application/json' },
-      }
-    );
-    console.log('response search => ', resp);
-    setstate(resp.data);
+  const search = async () => {
+    let arrayData : any = [];
+    const resp = await searchKey(key);
+    arrayData = resp;
+    setstate(arrayData);
   };
 
   const onHandleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,21 +66,9 @@ const ListReservations = () => {
   };
 
   const cancelFlight = async () => {
-    try {
-      const resp = await axiosIntance.put(
-        `${urls.localhost}/reservations/${data.id}`,
-        { ...data, active: false },
-        {
-          headers: { 'Content-Type': 'application/json' },
-        }
-      );
-
-      console.log('resp update => ', resp);
-      handleClose();
-      getFlights();
-    } catch (err) {
-      throw new Error(err);
-    }
+    dispatch(cancelReservation(data));
+    handleClose();
+    getFlights();
   };
   useEffect(() => {
     getFlights();
@@ -127,7 +108,7 @@ const ListReservations = () => {
                 />
               </div>
               <div>
-                <button onClick={() => searchKey()} className="btn btn-info">
+                <button onClick={() => search()} className="btn btn-info">
                   <i className="fas fa-search"></i>
                 </button>
               </div>
@@ -186,14 +167,11 @@ const ListReservations = () => {
               </tbody>
             </table>
           </div>
-
-        ): (
+        ) : (
           <div className="d-flex justify-content-center">
-
-              <h4 className="text-white">NO HAY RESERVAS EN EL MOMENTO</h4>
+            <h4 className="text-white">NO HAY RESERVAS EN EL MOMENTO</h4>
           </div>
         )}
-
       </div>
       <Modal show={show}>
         <Modal.Header>Estado del Vuelo</Modal.Header>
