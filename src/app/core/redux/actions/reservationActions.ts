@@ -1,8 +1,8 @@
-import Reservation from '../../../feature/NewReservation/models/Reservation.model';
+/* import Reservation from '../../../feature/NewReservation/models/Reservation.model';
 import {axiosIntance} from '../../config/AxiosConfig';
-import {urls} from '../../api/endpoints';
+import {urls} from '../../api/endpoints'; */
 
-export const createReservation = (reservation:Reservation) => {
+/* export const createReservation = (reservation:Reservation) => {
     return async () => {
         try {
             await axiosIntance.post( `${urls.localhost}/reservations`, reservation, {
@@ -14,9 +14,9 @@ export const createReservation = (reservation:Reservation) => {
         }
 
     };
-};
+}; */
 
-export const getReservations = async () => {
+/* export const getReservations = async () => {
     
         try {
             const res = await axiosIntance.get(`${urls.localhost}/reservations`, {
@@ -28,9 +28,9 @@ export const getReservations = async () => {
             throw new Error(err);
         }
     
-};
+}; */
 
-export const deleteReservation = (id:string) => {
+/* export const deleteReservation = (id:string) => {
     return async () => {
         try {
     
@@ -45,9 +45,9 @@ export const deleteReservation = (id:string) => {
         }
 
     };
-};
+}; */
 
-export const cancelReservation = (data : Reservation) => {
+/* export const cancelReservation = (data : Reservation) => {
     return async () => {
         try {
 
@@ -63,9 +63,9 @@ export const cancelReservation = (data : Reservation) => {
             throw new Error(err);
         }
     };
-};
+}; */
 
-export const searchKey = async (key:string) => {
+/* export const searchKey = async (key:string) => {
     
         try {
 
@@ -80,7 +80,7 @@ export const searchKey = async (key:string) => {
             throw new Error(err);
         }
     
-};
+}; */
 
 
 
