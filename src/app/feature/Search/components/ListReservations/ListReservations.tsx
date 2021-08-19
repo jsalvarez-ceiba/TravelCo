@@ -4,7 +4,7 @@ import Input from '../../../../shared/components/Input/Input';
 import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux'; */
 
-interface ReservationStructure {
+/* interface ReservationStructure {
   id: string;
   flightNumber: string;
   cityOrigin: string;
@@ -19,7 +19,7 @@ interface ReservationStructure {
 
 const ListReservations = () => {
 
-  /* const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const [data, setData] = useState({
     id: '',
@@ -70,7 +70,7 @@ const ListReservations = () => {
   };
   useEffect(() => {
     getFlights();
-  }, [getFlights]); */
+  }, [getFlights]);
 
   return (
     <div>
@@ -97,24 +97,24 @@ const ListReservations = () => {
                 flexWrap: 'wrap',
               }}
             >
-              {/* <div>
+              <div>
                 <Input
                   value={key}
                   name={'search'}
                   type={'text'}
                   onChange={e => onHandleSearch(e)}
                 />
-              </div> */}
+              </div>
               <div>
-                {/* <button onClick={() => search()} className="btn btn-info">
+                <button onClick={() => search()} className="btn btn-info">
                   <i className="fas fa-search"></i>
-                </button> */}
+                </button>
               </div>
             </div>
           </div>
         </div>
 
-        {/* {state.length !== 0 ? (
+        {state.length !== 0 ? (
           <div
             style={{ display: 'flex', justifyContent: 'center', width: '100%' }}
           >
@@ -169,9 +169,9 @@ const ListReservations = () => {
           <div className="d-flex justify-content-center">
             <h4 className="text-white">NO HAY RESERVAS EN EL MOMENTO</h4>
           </div>
-        )} */}
+        )}
       </div>
-      {/* <Modal show={show}>
+      <Modal show={show}>
         <Modal.Header>Estado del Vuelo</Modal.Header>
         <Modal.Body>
           <h5>¿Desea Cancelar este Vuelo?</h5>
@@ -185,9 +185,9 @@ const ListReservations = () => {
             </button>
           </div>
         </Modal.Body>
-      </Modal> */}
+      </Modal>
     </div>
   );
 };
 
-export default ListReservations;
+export default ListReservations; */

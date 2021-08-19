@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+/* import {Link} from 'react-router-dom';
 
 
 import './Navbar.style.scss';
@@ -55,4 +55,4 @@ const Navbar : React.FC = () => {
     );
 };
 
-export default Navbar;
+export default Navbar; */

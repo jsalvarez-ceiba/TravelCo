@@ -22,8 +22,8 @@ const minRange = 1000;
 
 const time = 5000; */
 
-const FormReservation = () => {
-  /* const dispatch = useDispatch();
+/* const FormReservation = () => {
+  const dispatch = useDispatch();
 
   const [cityOrigin, setCityOrigin] = useState('');
   const [cityDestination, setCityDestination] = useState('');
@@ -169,11 +169,11 @@ const FormReservation = () => {
     } else {
       setNewprice(price);
     }
-  }; */
+  };
 
   return (
     <>
-      {/* <div data-aos="zoom-in" className="card mx-auto opacity">
+      <div data-aos="zoom-in" className="card mx-auto opacity">
         <div className="card-header">
           <div className="">
             <strong>Nueva Reservación</strong>
@@ -242,9 +242,9 @@ const FormReservation = () => {
             <strong>Total: {newPrice} </strong>
           </div>
         </div>
-      </div> */}
+      </div>
 
-      {/* <div data-aos="zoom-in" className="card mx-auto opacity">
+      <div data-aos="zoom-in" className="card mx-auto opacity">
         <div className="card-body">
           <h6 className="card-title">Datos personales </h6>
 
@@ -301,8 +301,8 @@ const FormReservation = () => {
             </strong>
           )}
         </div>
-      </div> */}
-      {/* <Modal centered show={show}>
+      </div>
+      <Modal centered show={show}>
         <Modal.Header>Resumen de la Reserva</Modal.Header>
         <Modal.Body>
           <h5> Vuelo # {summary.flightNumber} </h5>
@@ -320,9 +320,9 @@ const FormReservation = () => {
 
           <h4>Precio USD : {newPrice}</h4>
         </Modal.Body>
-      </Modal> */}
+      </Modal>
     </>
   );
-};
+}; */
 
-export default FormReservation;
+/* export default FormReservation; */
