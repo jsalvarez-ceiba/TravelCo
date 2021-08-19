@@ -1,5 +1,5 @@
 import React from 'react'; 
-export const onSelected = (e: React.ChangeEvent<HTMLSelectElement>) => {
+/* export const onSelected = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const valueSpain = 3000000;
     const valueEEUU = 2000000;
     const valueColombia = 1800000;
@@ -68,4 +68,4 @@ export const onSelected = (e: React.ChangeEvent<HTMLSelectElement>) => {
     return { price , cityOrigin , cityDestination };
 
 
-};
+}; */

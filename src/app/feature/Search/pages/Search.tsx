@@ -1,5 +1,4 @@
 import React from 'react';
-/* import './Search.style.scss'; */
 import ListReservations from '../components/ListReservations/ListReservations';
 
 const Search = () => {

@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { getPlaces } from '../../../../core/api/places.service';
+import React/* , { useEffect, useState } */ from 'react';
+/* import { getPlaces } from '../../../../core/api/places.service';
 import Input from '../../../../shared/components/Input/Input';
 import Select from '../../../../shared/components/Select/Select';
 import Swal from 'sweetalert2';
-import { createReservation } from '../../../../core/redux/actions/reservationActions';
-import './FormReservation.style.scss';
+import { createReservation } from '../../../../core/redux/actions/reservationActions'; */
+/* import './FormReservation.style.scss';
 import { Modal } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
-import { onSelected } from '../utils/onSelected';
+import { useDispatch } from 'react-redux'; */
+/* import { onSelected } from '../utils/onSelected'; */
 
-const dateNow = new Date();
+/* const dateNow = new Date();
 const day = dateNow.getDate();
 const month = dateNow.getMonth() + 1;
 const year = dateNow.getFullYear() + 1;
@@ -20,10 +20,10 @@ const month10 = 10;
 const maxRange = 9999;
 const minRange = 1000;
 
-const time = 5000;
+const time = 5000; */
 
 const FormReservation = () => {
-  const dispatch = useDispatch();
+  /* const dispatch = useDispatch();
 
   const [cityOrigin, setCityOrigin] = useState('');
   const [cityDestination, setCityDestination] = useState('');
@@ -110,8 +110,8 @@ const FormReservation = () => {
 
       setTimeout(() => {
         handleClose();
-        /* createReservation(obj); */
-        /* props.history.push('/search'); */
+        
+        
       }, time);
 
       dispatch(createReservation(obj));
@@ -122,9 +122,10 @@ const FormReservation = () => {
     }
   };
 
-  const calculateAge = (date: React.ChangeEvent<HTMLInputElement>) => {
-    //setBirthdate(date);
-    const birth = new Date(date.target.value);
+  const calculateAge = (dateEvent: React.ChangeEvent<HTMLInputElement>) => {
+
+    
+    const birth = new Date(dateEvent.target.value);
     const now = new Date();
     let years = now.getFullYear() - birth.getFullYear();
 
@@ -134,7 +135,7 @@ const FormReservation = () => {
       years--;
     }
 
-    setBirthdate(date.target.value);
+    setBirthdate(dateEvent.target.value);
     setAge(years);
   };
 
@@ -153,14 +154,14 @@ const FormReservation = () => {
 
     const reservationDate = new Date(date.target.value);
 
-    const month = reservationDate.getMonth() + 1;
+    const mon = reservationDate.getMonth() + 1;
 
-    if (month >= april && month <= july) {
+    if (mon >= april && mon <= july) {
       const plus = price * increment;
       const newP = price + plus;
       setMessage('plus');
       setNewprice(newP);
-    } else if (month >= november && month <= december) {
+    } else if (mon >= november && mon <= december) {
       const discount = price * disc;
       const newP = price - discount;
       setMessage('discount');
@@ -168,11 +169,11 @@ const FormReservation = () => {
     } else {
       setNewprice(price);
     }
-  };
+  }; */
 
   return (
     <>
-      <div data-aos="zoom-in" className="card mx-auto opacity">
+      {/* <div data-aos="zoom-in" className="card mx-auto opacity">
         <div className="card-header">
           <div className="">
             <strong>Nueva Reservación</strong>
@@ -241,9 +242,9 @@ const FormReservation = () => {
             <strong>Total: {newPrice} </strong>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div data-aos="zoom-in" className="card mx-auto opacity">
+      {/* <div data-aos="zoom-in" className="card mx-auto opacity">
         <div className="card-body">
           <h6 className="card-title">Datos personales </h6>
 
@@ -300,8 +301,8 @@ const FormReservation = () => {
             </strong>
           )}
         </div>
-      </div>
-      <Modal centered show={show}>
+      </div> */}
+      {/* <Modal centered show={show}>
         <Modal.Header>Resumen de la Reserva</Modal.Header>
         <Modal.Body>
           <h5> Vuelo # {summary.flightNumber} </h5>
@@ -319,7 +320,7 @@ const FormReservation = () => {
 
           <h4>Precio USD : {newPrice}</h4>
         </Modal.Body>
-      </Modal>
+      </Modal> */}
     </>
   );
 };

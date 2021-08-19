@@ -1,7 +1,13 @@
+import React from 'react';
+import renderer from 'react-test-renderer';
+import Select from './Select';
+
 describe('Test Select Component', () => {
 
-    test('Render', () => {
-        expect(true).toBeTruthy();
+    const select = renderer.create(<Select />).toJSON();
+
+    test('Select Render', () => {
+        expect(select).toMatchSnapshot();
     });
 
 });
