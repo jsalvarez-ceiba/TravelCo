@@ -1,9 +1,9 @@
 import Reservation from '../../../feature/NewReservation/models/Reservation.model';
-/*
-import {axiosIntance} from '../../config/AxiosConfig';
-import {urls} from '../../api/endpoints'; */
 
-/* export const createReservation = (reservation:Reservation) => {
+import {axiosIntance} from '../../config/AxiosConfig';
+import {urls} from '../../api/endpoints'; 
+
+ export const createReservation = (reservation:Reservation) => {
     return async () => {
         try {
             await axiosIntance.post( `${urls.localhost}/reservations`, reservation, {
@@ -15,9 +15,9 @@ import {urls} from '../../api/endpoints'; */
         }
 
     };
-}; */
+}; 
 
-/* export const getReservations = async () => {
+ export const getReservations = async () => {
     
         try {
             const res = await axiosIntance.get(`${urls.localhost}/reservations`, {
@@ -29,9 +29,9 @@ import {urls} from '../../api/endpoints'; */
             throw new Error(err);
         }
     
-}; */
+}; 
 
-/* export const deleteReservation = (id:string) => {
+ export const deleteReservation = (id:string) => {
     return async () => {
         try {
     
@@ -46,9 +46,9 @@ import {urls} from '../../api/endpoints'; */
         }
 
     };
-}; */
+}; 
 
-/* export const cancelReservation = (data : Reservation) => {
+ export const cancelReservation = (data : Reservation) => {
     return async () => {
         try {
 
@@ -64,9 +64,9 @@ import {urls} from '../../api/endpoints'; */
             throw new Error(err);
         }
     };
-}; */
+}; 
 
-/* export const searchKey = async (key:string) => {
+ export const searchKey = async (key:string) => {
     
         try {
 
@@ -81,7 +81,7 @@ import {urls} from '../../api/endpoints'; */
             throw new Error(err);
         }
     
-}; */
+}; 
 
 
 

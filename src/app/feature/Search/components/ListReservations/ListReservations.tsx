@@ -1,10 +1,14 @@
-import React/* , { useCallback, useEffect, useState } */ from 'react';
-/* import { cancelReservation, getReservations, searchKey } from '../../../../core/redux/actions/reservationActions';
+import React, { useCallback, useEffect, useState } from 'react';
+import {
+  cancelReservation,
+  getReservations,
+  searchKey,
+} from '../../../../core/redux/actions/reservationActions';
 import Input from '../../../../shared/components/Input/Input';
 import { Modal } from 'react-bootstrap';
-import { useDispatch } from 'react-redux'; */
+import { useDispatch } from 'react-redux';
 
-/* interface ReservationStructure {
+interface ReservationStructure {
   id: string;
   flightNumber: string;
   cityOrigin: string;
@@ -18,7 +22,6 @@ import { useDispatch } from 'react-redux'; */
 }
 
 const ListReservations = () => {
-
   const dispatch = useDispatch();
 
   const [data, setData] = useState({
@@ -50,7 +53,7 @@ const ListReservations = () => {
   }, []);
 
   const search = async () => {
-    let arrayData : any = [];
+    let arrayData: any = [];
     const resp = await searchKey(key);
     arrayData = resp;
     setstate(arrayData);
@@ -158,7 +161,9 @@ const ListReservations = () => {
                       ) : (
                         <button className="btn btn-danger">Cancelado</button>
                       )}
-                      <button onClick={() => deleteFlight(element.id)}>delete</button>{' '}
+                      {/* <button onClick={() => deleteFlight(element.id)}>
+                        delete
+                      </button> */}
                     </td>
                   </tr>
                 ))}
@@ -190,4 +195,4 @@ const ListReservations = () => {
   );
 };
 
-export default ListReservations; */
+export default ListReservations;

@@ -1,15 +1,15 @@
-import React/* , { useEffect, useState } */ from 'react';
-/* import { getPlaces } from '../../../../core/api/places.service';
+import React  , { useEffect, useState }  from 'react';
+import { getPlaces } from '../../../../core/api/places.service';
 import Input from '../../../../shared/components/Input/Input';
 import Select from '../../../../shared/components/Select/Select';
 import Swal from 'sweetalert2';
-import { createReservation } from '../../../../core/redux/actions/reservationActions'; */
-/* import './FormReservation.style.scss';
+import { createReservation } from '../../../../core/redux/actions/reservationActions';
+import './FormReservation.style.scss';
 import { Modal } from 'react-bootstrap';
-import { useDispatch } from 'react-redux'; */
-/* import { onSelected } from '../utils/onSelected'; */
+import { useDispatch } from 'react-redux';
+import { onSelected } from '../utils/onSelected';
 
-/* const dateNow = new Date();
+const dateNow = new Date();
 const day = dateNow.getDate();
 const month = dateNow.getMonth() + 1;
 const year = dateNow.getFullYear() + 1;
@@ -20,9 +20,9 @@ const month10 = 10;
 const maxRange = 9999;
 const minRange = 1000;
 
-const time = 5000; */
+const time = 5000;
 
-/* const FormReservation = () => {
+const FormReservation = () => {
   const dispatch = useDispatch();
 
   const [cityOrigin, setCityOrigin] = useState('');
@@ -110,8 +110,6 @@ const time = 5000; */
 
       setTimeout(() => {
         handleClose();
-        
-        
       }, time);
 
       dispatch(createReservation(obj));
@@ -123,8 +121,6 @@ const time = 5000; */
   };
 
   const calculateAge = (dateEvent: React.ChangeEvent<HTMLInputElement>) => {
-
-    
     const birth = new Date(dateEvent.target.value);
     const now = new Date();
     let years = now.getFullYear() - birth.getFullYear();
@@ -323,6 +319,6 @@ const time = 5000; */
       </Modal>
     </>
   );
-}; */
+};
 
-/* export default FormReservation; */
+export default FormReservation;

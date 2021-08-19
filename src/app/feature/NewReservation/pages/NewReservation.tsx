@@ -1,5 +1,5 @@
 import React from 'react';
-/* import FormReservation from '../components/FormReservation/FormReservation';
+import FormReservation from '../components/FormReservation/FormReservation';
 import './NewReservation.style.scss';
 import {RouteComponentProps, withRouter } from 'react-router-dom';
 
@@ -16,4 +16,4 @@ const NewReservation = (props : PropsComponent) => {
         </div>
     );
 };
-export default withRouter(NewReservation); */
+export default withRouter(NewReservation);

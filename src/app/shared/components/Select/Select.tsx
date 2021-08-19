@@ -1,6 +1,6 @@
-import React/* , { SelectHTMLAttributes, FC } */ from 'react';
+import React, { SelectHTMLAttributes, FC } from 'react';
 
-/* interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
+interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   name: string;
   data: any[];
 }
@@ -23,4 +23,4 @@ const Select: FC<SelectProps> = ({ name, data, title, ...rest }: SelectProps) =>
     </select>
   );
 };
-export default Select; */
+export default Select;

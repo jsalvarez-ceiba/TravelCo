@@ -7,14 +7,14 @@ describe('On Selected Test', () => {
         expect(true).toBeTruthy();
     });
 
-    /* test('function', () => {
+    test('function', () => {
 
         expect(onSelected).toBeTruthy();
 
         
 
         
-    }); */
+    });
 
     
 });

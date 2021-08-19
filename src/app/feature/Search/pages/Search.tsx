@@ -1,7 +1,7 @@
 import React from 'react';
-/* import ListReservations from '../components/ListReservations/ListReservations'; */
+import ListReservations from '../components/ListReservations/ListReservations';
 
-/* const Search = () => {
+const Search = () => {
   return (
     <div className="backgroundFly" style={{ width: '100vw', height: '100vh' }}>
       <div
@@ -19,4 +19,4 @@ import React from 'react';
   );
 };
 
-export default Search; */
+export default Search;
