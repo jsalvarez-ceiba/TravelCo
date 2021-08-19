@@ -27,13 +27,13 @@ describe('With React Testing Library', () => {
 
   
 
-  test('Wrapper', () => {
+  /* test('Wrapper', () => {
     store = mockStore(initialState);
     const wrapper = shallow( <Provider store={store} > <ListReservations/> </Provider> );
     expect(wrapper).toMatchSnapshot();
       
       
-  });
+  }); */
 
 
 

@@ -36,20 +36,6 @@ describe('Test Form With React Testing Library', () => {
     expect(page.find('Input').length).toEqual(4);
   });
 
-  /* test('render view', () => {
-
-    store = mockStore(initialState);
-    render(<Provider store={store}>
-        
-      <FormReservation />
-    </Provider>);
-
-  }); */
-
-  test('render', () => {
-    expect(true).toBeTruthy();
-  });
-
   
 
 });
