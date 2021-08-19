@@ -88,11 +88,12 @@ const FormReservation = () => {
       const nTrunc = Math.trunc(nRandom);
 
       const obj = {
+        id: '',
         flightNumber: `FL-${nTrunc}`,
         cityOrigin,
         cityDestination,
         datetime: date,
-        price: newPrice,
+        price: newPrice.toString(),
         name,
         lastname,
         birthdate,

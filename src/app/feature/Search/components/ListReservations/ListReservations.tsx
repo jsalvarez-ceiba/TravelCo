@@ -1,5 +1,3 @@
-import { urls } from 'app/core/api/endpoints';
-import { axiosIntance } from 'app/core/config/AxiosConfig';
 import React, { useCallback, useEffect, useState } from 'react';
 import { cancelReservation, getReservations, searchKey } from '../../../../core/redux/actions/reservationActions';
 import Input from '../../../../shared/components/Input/Input';
