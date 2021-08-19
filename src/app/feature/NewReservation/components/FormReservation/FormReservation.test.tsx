@@ -36,16 +36,6 @@ describe('Test Form With React Testing Library', () => {
     expect(page.find('Input').length).toEqual(4);
   });
 
-  test('Snapshot => ', () => {
-    
-
-    store = mockStore(initialState);
-    const wrapper = shallow( <Provider store={store}>
-        
-      <FormReservation />
-    </Provider> );
-    expect(wrapper).toMatchSnapshot();
-
-  });
+  
 
 });
