@@ -1,4 +1,5 @@
-/* import Reservation from '../../../feature/NewReservation/models/Reservation.model';
+import Reservation from '../../../feature/NewReservation/models/Reservation.model';
+/*
 import {axiosIntance} from '../../config/AxiosConfig';
 import {urls} from '../../api/endpoints'; */
 
