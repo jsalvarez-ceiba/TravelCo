@@ -1,9 +1,8 @@
 import React  , { useEffect, useState }  from 'react';
-import { getPlaces } from '../../../../core/api/places.service';
 import Input from '../../../../shared/components/Input/Input';
 import Select from '../../../../shared/components/Select/Select';
 import Swal from 'sweetalert2';
-import { createReservation } from '../../../../core/redux/actions/reservationActions';
+import { createReservation } from '../../../../core/redux/actions/reservations/reservationActions';
 import './FormReservation.style.scss';
 import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
@@ -56,7 +55,6 @@ const FormReservation = () => {
   const [state, setstate] = useState([]);
 
   useEffect(() => {
-    getPlaces().then(res => setstate(res));
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

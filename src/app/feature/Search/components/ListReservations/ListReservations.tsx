@@ -3,7 +3,7 @@ import {
   cancelReservation,
   getReservations,
   searchKey,
-} from '../../../../core/redux/actions/reservationActions';
+} from '../../../../core/redux/actions/reservations/reservationActions';
 import Input from '../../../../shared/components/Input/Input';
 import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';

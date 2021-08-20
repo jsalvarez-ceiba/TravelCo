@@ -28,7 +28,7 @@
         "no-var": "error",
         "no-unused-vars": "off",
         "quotes": ["error", "single"],
-        "semi": ["error", "always"],
+        "semi": ["off", "always"],
         "prefer-arrow-callback": "error",
         "prefer-const": "error",
         "no-debugger": "error",

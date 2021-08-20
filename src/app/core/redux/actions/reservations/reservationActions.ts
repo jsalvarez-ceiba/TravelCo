@@ -1,7 +1,7 @@
-import Reservation from '../../../feature/NewReservation/models/Reservation.model';
+import Reservation from '../../../../feature/NewReservation/models/Reservation.model';
 
-import {axiosIntance} from '../../config/AxiosConfig';
-import {urls} from '../../api/endpoints'; 
+import {axiosIntance} from '../../../config/AxiosConfig';
+import {urls} from '../../../api/endpoints'; 
 
  export const createReservation = (reservation:Reservation) => {
     return async () => {
