@@ -14,7 +14,6 @@ export function setPlaces  (places : Array<Places>) : Actions {
 export const getPlaces = () => {
     return async (dispatch : any) => {
         try {
-            console.log('se disparo la accion!');
             const response = await axiosIntance.get(`${urls.localhost}/places`);
             const data = response.data;
             dispatch(setPlaces(data));

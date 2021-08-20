@@ -10,5 +10,11 @@ describe('Acceder al portal y realizar una reserva con exito', () => {
         
         cy.wait(5000);
 
+        cy.contains('Seleccionar Origen').click();
+
+
+
+
+
     });
 });

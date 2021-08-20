@@ -60,7 +60,7 @@ const FormReservation = () => {
 
   const getList = useCallback(() => {
     dispatch(getPlaces());
-  }, [dispatch])
+  }, [dispatch]);
 
   useEffect(() => {
     getList();
@@ -74,37 +74,23 @@ const FormReservation = () => {
       case 'lastname':
         setLastname(e.target.value);
         break;
-
       case 'date':
         calculatePriceWithDate(e);
-
         break;
     }
   };
 
   const onHandleSelected = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { price, cityOrigin, cityDestination } = onSelected(e);
-
     if (e.target.name === 'origin') {
-
       setCityOrigin(cityOrigin);
     } else if (e.target.name === 'destination') {
       setCityDestination(cityDestination);
       setPrice(price);
-
     }
-
-    
-    
-
-    
-
   };
 
   const dispatchAction = () => {
-
-    console.log('resumen => ', cityOrigin, cityDestination, price);
-
     if (name !== '' && lastname !== '' && date !== '') {
       const nRandom = Math.random() * (maxRange - minRange) + minRange;
       const nTrunc = Math.trunc(nRandom);
@@ -265,8 +251,6 @@ const FormReservation = () => {
       <div data-aos="zoom-in" className="card mx-auto opacityCell">
         <div className="card-body">
           <h6 className="card-title">Datos personales </h6>
-
-
 
           <hr />
 

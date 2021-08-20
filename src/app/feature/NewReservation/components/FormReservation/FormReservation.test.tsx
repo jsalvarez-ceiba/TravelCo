@@ -10,7 +10,7 @@ import configureStore from 'redux-mock-store';
 import { mount, shallow } from 'enzyme';
 
 describe('Test Form With React Testing Library', () => {
-  const initialState = { output: 10 };
+  const initialState = {  };
   const mockStore = configureStore();
   let store, wrapper;
 
@@ -20,24 +20,33 @@ describe('Test Form With React Testing Library', () => {
 
   /* test('Render component', () => {
     store = mockStore(initialState);
-    const { getByText } = render(
+    const wrapper = mount(
       <Provider store={store}>
-        {' '}
         <FormReservation />{' '}
       </Provider>
     );
-    expect(getByText('Nueva Reservación')).not.toBeNull();
+    expect(wrapper.find('Nueva Reservación')).toBeTruthy();
   }); */
 
   /* test('Inputs', () => {
     store = mockStore(initialState);
     const page = mount(
       <Provider store={store}>
-        
         <FormReservation />
       </Provider>
     );
     expect(page.find('Input').length).toEqual(4);
+  }); */
+
+  /* test('Selects ', () => {
+    store = mockStore(initialState);
+    const page = mount(
+      <Provider store={store}>
+        <FormReservation />
+      </Provider>
+    )
+    expect(page.find('Select').length).toEqual(2);
+
   }); */
 
   

@@ -65,7 +65,6 @@ export const onSelected = (e: React.ChangeEvent<HTMLSelectElement>) => {
         break;
     }
 
-    console.log(cityOrigin, cityDestination, price);
 
     return { price , cityOrigin , cityDestination };
 
