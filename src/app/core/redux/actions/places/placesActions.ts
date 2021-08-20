@@ -11,14 +11,14 @@ export function setPlaces  (places : Array<Places>) : Actions {
     };
 }
 
-export const getPlaces = async () => {
-    /* return async (dispatch : any) => { */
+export const getPlaces = () => {
+    return async (dispatch : any) => {
         try {
             const response = await axiosIntance.get(`${urls.localhost}/places`);
             const data = response.data;
-            setPlaces(data);
+            dispatch(setPlaces(data));
         } catch (err) {
             throw new Error(err);
         }
-    /* }; */
+    };
 };

@@ -1,11 +1,12 @@
-describe('Acceder al portal y realizar una reserva con exito', () => {
+describe('Acceder al portal y cancelar un vuelo', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000');
   });
   it('Realizar reserva con exito', () => {
     cy.get('button').click();
-    cy.contains('Reservar').click();
+    cy.contains('Buscar reserva').click();
     cy.wait(5000);
-    cy.contains('Seleccionar Origen').click();
+    cy.contains('Activo').click();
+    cy.contains('Sí').click();
   });
 });

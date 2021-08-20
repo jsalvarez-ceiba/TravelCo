@@ -1,6 +1,6 @@
 import { getPlaces } from 'app/core/redux/actions/places/placesActions';
 import React, { useEffect, useCallback } from 'react';
-/* import { useDispatch } from 'react-redux'; */
+import { useDispatch } from 'react-redux';
 
 
 
@@ -8,11 +8,11 @@ import TitleHome from '../components/TitleHome/TitleHome';
 import './Home.style.scss';
 
 const Home = () => {
-  /* const dispatch = useDispatch(); */
+  const dispatch = useDispatch();
 
   const getList = useCallback(() => {
-    getPlaces();
-  }, []);
+    dispatch(getPlaces());
+  }, [dispatch]);
 
   useEffect(() => {
     getList();

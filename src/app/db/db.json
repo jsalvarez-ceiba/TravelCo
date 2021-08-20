@@ -114,7 +114,7 @@
       "name": "SEBASTIAN",
       "lastname": "ALVAREZ",
       "birthdate": "1997-04-19",
-      "active": true
+      "active": false
     },
     {
       "id": 3,

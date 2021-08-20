@@ -11,8 +11,8 @@ interface Places {
     flag: string;
 }
 
+
 const Select: FC<SelectProps> = ({ name, data, title, ...rest }: SelectProps) => {
-  data = [];
   return (
     <select name={name} {...rest} className="form-control">
       <option value="">Seleccionar {title} </option>

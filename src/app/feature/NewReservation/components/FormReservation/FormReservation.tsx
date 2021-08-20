@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, FC } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import Input from '../../../../shared/components/Input/Input';
 import Select from '../../../../shared/components/Select/Select';
 import Swal from 'sweetalert2';
@@ -23,7 +23,7 @@ const minRange = 1000;
 
 const time = 5000;
 
-const FormReservation : React.FC = () => {
+const FormReservation = () => {
   const dispatch = useDispatch();
 
   const places = useSelector<PlacesState, PlacesState['places']>(
@@ -59,8 +59,8 @@ const FormReservation : React.FC = () => {
   }
 
   const getList = useCallback(() => {
-    getPlaces();
-  }, []);
+    dispatch(getPlaces());
+  }, [dispatch]);
 
   useEffect(() => {
     getList();
