@@ -59,8 +59,8 @@ const FormReservation : React.FC = () => {
   }
 
   const getList = useCallback(() => {
-    dispatch(getPlaces());
-  }, [dispatch]);
+    getPlaces();
+  }, []);
 
   useEffect(() => {
     getList();

@@ -1,8 +1,8 @@
 import React from 'react';
 import FormReservation from '../components/FormReservation/FormReservation';
 import './NewReservation.style.scss';
-import { withRouter } from 'react-router-dom';
-
+/* import { withRouter } from 'react-router-dom';
+ */
 
 
 const NewReservation = () => {
@@ -12,8 +12,7 @@ const NewReservation = () => {
                 <i className="fas fa-plane-departure fa-2x text-white"></i>
             </div>
             <FormReservation  />
-            <h5>Footer</h5>
         </div>
     );
 };
-export default withRouter(NewReservation);
+export default NewReservation;
