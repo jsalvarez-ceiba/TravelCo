@@ -1,4 +1,4 @@
-import React  , { useEffect, useState }  from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import Input from '../../../../shared/components/Input/Input';
 import Select from '../../../../shared/components/Select/Select';
 import Swal from 'sweetalert2';
@@ -8,6 +8,7 @@ import { Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { onSelected } from '../utils/onSelected';
 import { PlacesState } from 'app/core/redux/reducers/places/placesReducer';
+import { getPlaces } from 'app/core/redux/actions/places/placesActions';
 
 const dateNow = new Date();
 const day = dateNow.getDate();
@@ -25,7 +26,9 @@ const time = 5000;
 const FormReservation = () => {
   const dispatch = useDispatch();
 
-  const places = useSelector<PlacesState, PlacesState['places']>((state) => state.places);
+  const places = useSelector<PlacesState, PlacesState['places']>(
+    state => state.places
+  );
 
   const [cityOrigin, setCityOrigin] = useState('');
   const [cityDestination, setCityDestination] = useState('');
@@ -55,10 +58,13 @@ const FormReservation = () => {
     flag: string;
   }
 
-  
+  const getList = useCallback(() => {
+    dispatch(getPlaces());
+  }, [dispatch])
 
   useEffect(() => {
-  }, []);
+    getList();
+  }, [getList]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     switch (e.target.name) {
@@ -78,12 +84,27 @@ const FormReservation = () => {
 
   const onHandleSelected = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { price, cityOrigin, cityDestination } = onSelected(e);
-    setCityOrigin(cityOrigin);
-    setCityDestination(cityDestination);
-    setPrice(price);
+
+    if (e.target.name === 'origin') {
+
+      setCityOrigin(cityOrigin);
+    } else if (e.target.name === 'destination') {
+      setCityDestination(cityDestination);
+      setPrice(price);
+
+    }
+
+    
+    
+
+    
+
   };
 
   const dispatchAction = () => {
+
+    console.log('resumen => ', cityOrigin, cityDestination, price);
+
     if (name !== '' && lastname !== '' && date !== '') {
       const nRandom = Math.random() * (maxRange - minRange) + minRange;
       const nTrunc = Math.trunc(nRandom);
@@ -117,7 +138,7 @@ const FormReservation = () => {
 
       Swal.fire('¡Se ha creado la reserva con exito!');
     } else {
-      alert('Datos incompletos');
+      Swal.fire('Datos incompletos');
     }
   };
 
@@ -170,7 +191,7 @@ const FormReservation = () => {
 
   return (
     <>
-      <div data-aos="zoom-in" className="card mx-auto opacity">
+      <div data-aos="zoom-in" className="card mx-auto opacityCell">
         <div className="card-header">
           <div className="">
             <strong>Nueva Reservación</strong>
@@ -241,9 +262,11 @@ const FormReservation = () => {
         </div>
       </div>
 
-      <div data-aos="zoom-in" className="card mx-auto opacity">
+      <div data-aos="zoom-in" className="card mx-auto opacityCell">
         <div className="card-body">
           <h6 className="card-title">Datos personales </h6>
+
+
 
           <hr />
 
@@ -315,7 +338,7 @@ const FormReservation = () => {
 
           <hr />
 
-          <h4>Precio USD : {newPrice}</h4>
+          <h4>Precio : {newPrice} COP</h4>
         </Modal.Body>
       </Modal>
     </>

@@ -1,10 +1,22 @@
-import React, { useEffect } from 'react';
+import { getPlaces } from 'app/core/redux/actions/places/placesActions';
+import React, { useEffect, useCallback } from 'react';
+import { useDispatch } from 'react-redux';
+
+
 
 import TitleHome from '../components/TitleHome/TitleHome';
 import './Home.style.scss';
 
 const Home = () => {
-  useEffect(() => {}, []);
+  const dispatch = useDispatch();
+
+  const getList = useCallback(() => {
+    dispatch(getPlaces());
+  }, [dispatch]);
+
+  useEffect(() => {
+    getList();
+  }, [getList]);
 
   return (
     <div className="backgroundFlyHome">

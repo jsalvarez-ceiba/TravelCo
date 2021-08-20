@@ -1,18 +1,20 @@
 import React from 'react';
 import FormReservation from '../components/FormReservation/FormReservation';
 import './NewReservation.style.scss';
-import {RouteComponentProps, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
-interface PropsComponent extends RouteComponentProps {
-    
 
-}
 
-const NewReservation = (props : PropsComponent) => {
+const NewReservation = () => {
     return (
-        <div className="backgroundFly">
-            <h4 className="text-white flexCenter">Nueva Reserva</h4>
+        <div className="backgroundFlyCell">
+            <div className="d-flex justify-content-center" style={{padding: 20}}>
+
+                <i className="fas fa-plane-departure fa-2x text-white"></i>
+            </div>
+            
             <FormReservation  />
+            <h5>Footer</h5>
         </div>
     );
 };

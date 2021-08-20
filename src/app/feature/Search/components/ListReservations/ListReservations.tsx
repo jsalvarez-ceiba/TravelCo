@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import {
   cancelReservation,
+  
   getReservations,
   searchKey,
 } from '../../../../core/redux/actions/reservations/reservationActions';
@@ -71,6 +72,11 @@ const ListReservations = () => {
     handleClose();
     getFlights();
   };
+
+  /* const deleteF = (id : string) => {
+    dispatch(deleteReservation(id));
+  } */
+
   useEffect(() => {
     getFlights();
   }, [getFlights]);
@@ -119,9 +125,9 @@ const ListReservations = () => {
 
         {state.length !== 0 ? (
           <div
-            style={{ display: 'flex', justifyContent: 'center', width: '100%' }}
+            style={{width: '100%', display: 'flex', justifyContent: 'center'}}
           >
-            <table className="opacity table">
+            <table className="opacity table" >
               <thead>
                 <tr>
                   <th>#</th>
@@ -161,7 +167,7 @@ const ListReservations = () => {
                       ) : (
                         <button className="btn btn-danger">Cancelado</button>
                       )}
-                      {/* <button onClick={() => deleteFlight(element.id)}>
+                      {/* <button onClick={() => deleteF(element.id)}>
                         delete
                       </button> */}
                     </td>

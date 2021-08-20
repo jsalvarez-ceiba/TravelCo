@@ -1,7 +1,6 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import './ContainerPlaces.style.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import { getPlaces } from '../../../../core/redux/actions/places/placesActions';
+import { useSelector } from 'react-redux';
 
 import medellin from '../../../../../assets/img/imgsPlaces/medellin.jpg';
 import bogota from '../../../../../assets/img/imgsPlaces/bogota.jpg';
@@ -21,7 +20,6 @@ import ibiza from '../../../../../assets/img/imgsPlaces/ibiza.jpg';
 import { PlacesState } from 'app/core/redux/reducers/places/placesReducer';
 
 const ContainerPlaces = () => {
-  const dispatch = useDispatch();
   const places = useSelector<PlacesState, PlacesState['places']>(
     state => state.places
   );
@@ -32,17 +30,14 @@ const ContainerPlaces = () => {
     flag: string;
   }
 
-  const getList = useCallback(() => {
-
-    dispatch(getPlaces());
-  }, [dispatch])
+  
 
   
 
   useEffect(() => {
 
-    getList();
-  }, [getList]);
+    
+  }, []);
 
   return (
     <div className="flexCenter">

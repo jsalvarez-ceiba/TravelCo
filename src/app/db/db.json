@@ -93,6 +93,7 @@
   ],
   "reservations": [
     {
+      "id": 1,
       "flightNumber": "FL-5171",
       "cityOrigin": "Medellín",
       "cityDestination": "Bogotá",
@@ -101,20 +102,55 @@
       "name": "SEBASTIAN",
       "lastname": "ALVAREZ",
       "birthdate": "1997-04-04",
-      "active": true,
-      "id": 1
+      "active": false
     },
     {
-      "flightNumber": "FL-3571",
+      "id": 2,
+      "flightNumber": "FL-9877",
       "cityOrigin": "Medellín",
-      "cityDestination": "Ibiza",
-      "datetime": "2022-06-24",
-      "price": 3600000,
-      "name": "JUAN",
+      "cityDestination": "Bucaramanga",
+      "datetime": "2021-09-04",
+      "price": "1530000",
+      "name": "SEBASTIAN",
+      "lastname": "ALVAREZ",
+      "birthdate": "1997-04-19",
+      "active": true
+    },
+    {
+      "id": 3,
+      "flightNumber": "FL-1764",
+      "cityOrigin": "Los Angeles",
+      "cityDestination": "Madrid",
+      "datetime": "2021-08-19",
+      "price": "3000000",
+      "name": "SEBASTIAN",
       "lastname": "ALVAREZ",
       "birthdate": "1997-04-04",
-      "active": true,
-      "id": 2
+      "active": true
+    },
+    {
+      "id": 4,
+      "flightNumber": "FL-3221",
+      "cityOrigin": "Bogotá",
+      "cityDestination": "Ibiza",
+      "datetime": "2021-09-09",
+      "price": "2550000",
+      "name": "SEBASTIAN",
+      "lastname": "ALVAREZ",
+      "birthdate": "1997-04-04",
+      "active": true
+    },
+    {
+      "id": 5,
+      "flightNumber": "FL-7689",
+      "cityOrigin": "Medellín",
+      "cityDestination": "Madrid",
+      "datetime": "2021-09-10",
+      "price": "2550000",
+      "name": "SEBASTIAN",
+      "lastname": "ALVAREZ",
+      "birthdate": "1997-04-19",
+      "active": true
     }
   ]
 }
