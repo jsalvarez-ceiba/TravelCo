@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import './ContainerPlaces.style.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPlaces } from '../../../../core/redux/actions/places/placesActions';
@@ -32,11 +32,17 @@ const ContainerPlaces = () => {
     flag: string;
   }
 
+  const getList = useCallback(() => {
+
+    dispatch(getPlaces());
+  }, [dispatch])
+
   
 
   useEffect(() => {
-    dispatch(getPlaces());
-  }, []);
+
+    getList();
+  }, [getList]);
 
   return (
     <div className="flexCenter">

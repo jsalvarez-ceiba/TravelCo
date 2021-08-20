@@ -5,8 +5,9 @@ import Swal from 'sweetalert2';
 import { createReservation } from '../../../../core/redux/actions/reservations/reservationActions';
 import './FormReservation.style.scss';
 import { Modal } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { onSelected } from '../utils/onSelected';
+import { PlacesState } from 'app/core/redux/reducers/places/placesReducer';
 
 const dateNow = new Date();
 const day = dateNow.getDate();
@@ -23,6 +24,8 @@ const time = 5000;
 
 const FormReservation = () => {
   const dispatch = useDispatch();
+
+  const places = useSelector<PlacesState, PlacesState['places']>((state) => state.places);
 
   const [cityOrigin, setCityOrigin] = useState('');
   const [cityDestination, setCityDestination] = useState('');
@@ -52,7 +55,7 @@ const FormReservation = () => {
     flag: string;
   }
 
-  const [state, setstate] = useState([]);
+  
 
   useEffect(() => {
   }, []);
@@ -183,7 +186,7 @@ const FormReservation = () => {
               onChange={e => onHandleSelected(e)}
               name="origin"
               title="Origen"
-              data={state}
+              data={places}
             />
           </div>
 
@@ -196,7 +199,7 @@ const FormReservation = () => {
               onChange={e => onHandleSelected(e)}
               name="destination"
               title="Destino"
-              data={state}
+              data={places}
             />
           </div>
 
