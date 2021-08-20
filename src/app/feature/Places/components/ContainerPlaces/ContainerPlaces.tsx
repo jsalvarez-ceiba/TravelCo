@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './ContainerPlaces.style.scss';
 import { useSelector } from 'react-redux';
 
@@ -30,14 +30,6 @@ const ContainerPlaces = () => {
     flag: string;
   }
 
-  
-
-  
-
-  useEffect(() => {
-
-    
-  }, []);
 
   return (
     <div className="flexCenter">
@@ -48,37 +40,7 @@ const ContainerPlaces = () => {
               <img
                 style={{ width: 320, height: 250 }}
                 src={
-                  element.city === 'Medellín'
-                    ? medellin
-                    : element.city === 'Bogotá'
-                    ? bogota
-                    : element.city === 'Cali'
-                    ? cali
-                    : element.city === 'Bucaramanga'
-                    ? bucaramanga
-                    : element.city === 'Cartagena'
-                    ? cartagena
-                    : element.city === 'Miami'
-                    ? miami
-                    : element.city === 'Chicago'
-                    ? chicago
-                    : element.city === 'Los Angeles'
-                    ? la
-                    : element.city === 'Boston'
-                    ? boston
-                    : element.city === 'Washington'
-                    ? washington
-                    : element.city === 'Barcelona'
-                    ? barcelona
-                    : element.city === 'Madrid'
-                    ? madrid
-                    : element.city === 'Marbella'
-                    ? marbella
-                    : element.city === 'Galicia'
-                    ? galicia
-                    : element.city === 'Ibiza'
-                    ? ibiza
-                    : ''
+                  element.city === 'Medellín' ? medellin : element.city === 'Bogotá' ? bogota : element.city === 'Cali' ? cali : element.city === 'Bucaramanga' ? bucaramanga : element.city === 'Cartagena' ? cartagena: element.city === 'Miami'? miami: element.city === 'Chicago'? chicago: element.city === 'Los Angeles'? la: element.city === 'Boston'? boston: element.city === 'Washington'? washington: element.city === 'Barcelona'? barcelona: element.city === 'Madrid'? madrid: element.city === 'Marbella'? marbella: element.city === 'Galicia'? galicia: element.city === 'Ibiza'? ibiza: ''
                 }
                 className="card-img-top"
                 alt="..."

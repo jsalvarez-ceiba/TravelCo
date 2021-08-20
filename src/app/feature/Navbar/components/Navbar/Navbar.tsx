@@ -31,7 +31,6 @@ const Navbar : React.FC = () => {
             <div className="collapse" id="navbarToggleExternalContent">
                 <div className="bg-dark p-4">
                     <h5 className="text-white h4">Bienvenido a TravelCo</h5>
-                    
                     <br />
                     <ul>
                         {
@@ -46,7 +45,14 @@ const Navbar : React.FC = () => {
             </div>
             <nav className="navbar navbar-dark bg-dark">
                 <div className="container-fluid">
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <button
+                    className="navbar-toggler" 
+                    type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#navbarToggleExternalContent" 
+                    aria-controls="navbarToggleExternalContent" 
+                    aria-expanded="false" 
+                    aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                 </div>

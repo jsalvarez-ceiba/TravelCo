@@ -9,10 +9,8 @@ const NewReservation = () => {
     return (
         <div className="backgroundFlyCell">
             <div className="d-flex justify-content-center" style={{padding: 20}}>
-
                 <i className="fas fa-plane-departure fa-2x text-white"></i>
             </div>
-            
             <FormReservation  />
             <h5>Footer</h5>
         </div>
