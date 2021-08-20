@@ -293,6 +293,7 @@ const FormReservation = () => {
           {age >= Age18 ? (
             <div>
               <button
+                name="save"
                 className="btn btn-info text-white mt-2"
                 onClick={() => dispatchAction()}
               >

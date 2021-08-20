@@ -138,7 +138,7 @@
       "name": "SEBASTIAN",
       "lastname": "ALVAREZ",
       "birthdate": "1997-04-04",
-      "active": true
+      "active": false
     },
     {
       "id": 5,
@@ -150,6 +150,42 @@
       "name": "SEBASTIAN",
       "lastname": "ALVAREZ",
       "birthdate": "1997-04-19",
+      "active": true
+    },
+    {
+      "id": 6,
+      "flightNumber": "FL-9573",
+      "cityOrigin": "Los Angeles",
+      "cityDestination": "Madrid",
+      "datetime": "2022-08-19",
+      "price": "3000000",
+      "name": "SEBASTIAN",
+      "lastname": "ALVAREZ",
+      "birthdate": "1997-04-04",
+      "active": true
+    },
+    {
+      "id": 7,
+      "flightNumber": "FL-4209",
+      "cityOrigin": "Medellín",
+      "cityDestination": "Cali",
+      "datetime": "2021-08-30",
+      "price": "1800000",
+      "name": "Guest Name",
+      "lastname": "Guest LastName",
+      "birthdate": "1997-04-04",
+      "active": true
+    },
+    {
+      "id": 8,
+      "flightNumber": "FL-1893",
+      "cityOrigin": "Medellín",
+      "cityDestination": "Cali",
+      "datetime": "2021-08-30",
+      "price": "1800000",
+      "name": "Guest Name",
+      "lastname": "Guest LastName",
+      "birthdate": "1997-04-04",
       "active": true
     }
   ]
