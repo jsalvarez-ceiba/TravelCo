@@ -18,15 +18,19 @@ describe('Test Form With React Testing Library', () => {
     expect(true).toBeTruthy();
   })
 
-  /* test('Render component', () => {
-    store = mockStore(initialState);
+  test('Render component', () => {
+    const component = render(FormReservation);
+
+    expect(component).toBeTruthy();
+
+    /* store = mockStore(initialState);
     const wrapper = mount(
       <Provider store={store}>
         <FormReservation />{' '}
       </Provider>
-    );
-    expect(wrapper.find('Nueva Reservación')).toBeTruthy();
-  }); */
+    ); */
+    /* expect(wrapper.find('Nueva Reservación')).toBeTruthy(); */
+  });
 
   /* test('Inputs', () => {
     store = mockStore(initialState);
