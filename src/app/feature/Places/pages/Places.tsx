@@ -1,13 +1,26 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
+import * as PropTypes from 'prop-types';
+
 import ContainerPlaces from '../components/ContainerPlaces/ContainerPlaces';
+import { useDispatch } from 'react-redux';
+/* import { PlacesState } from 'app/core/redux/model/PlacesState'; */
+import { getPlaces } from 'app/core/redux/actions/places/placesActions';
 
 
 
 
-const Places = () => {
+export const Places : React.FC = () => {
+
+    const dispatch = useDispatch();
+
+    const getList = useCallback(() => {
+        dispatch(getPlaces());
+
+    }, [dispatch]);
 
     useEffect(() => {
-    }, []);
+        getList();
+    }, [getList]);
 
     return (
         <div className="background">
@@ -21,4 +34,13 @@ const Places = () => {
     );
 };
 
-export default Places;
+
+
+Places.propTypes = {
+    getPlaces: PropTypes.func.isRequired,
+
+}
+
+
+
+

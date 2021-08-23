@@ -17,7 +17,7 @@ import madrid from '../../../../../assets/img/imgsPlaces/madrid.jpg';
 import marbella from '../../../../../assets/img/imgsPlaces/marbella.jpg';
 import galicia from '../../../../../assets/img/imgsPlaces/galicia.jpg';
 import ibiza from '../../../../../assets/img/imgsPlaces/ibiza.jpg';
-import { PlacesState } from 'app/core/redux/reducers/places/placesReducer';
+import { PlacesState } from 'app/core/redux/model/PlacesState';
 
 const ContainerPlaces = () => {
   const places = useSelector<PlacesState, PlacesState['places']>(

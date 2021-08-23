@@ -7,7 +7,7 @@ import './FormReservation.style.scss';
 import { Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { onSelected } from '../utils/onSelected';
-import { PlacesState } from 'app/core/redux/reducers/places/placesReducer';
+import { PlacesState } from 'app/core/redux/model/PlacesState';
 import { getPlaces } from 'app/core/redux/actions/places/placesActions';
 
 const dateNow = new Date();
@@ -120,7 +120,7 @@ const FormReservation = () => {
         handleClose();
       }, time);
 
-      dispatch(createReservation(obj));
+      dispatch(createReservation(obj)); 
 
       Swal.fire('¡Se ha creado la reserva con exito!');
     } else {
