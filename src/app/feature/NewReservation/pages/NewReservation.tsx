@@ -10,7 +10,7 @@ const NewReservation = () => {
             <div className="d-flex justify-content-center" style={{padding: 20}}>
                 <i className="fas fa-plane-departure fa-2x text-white"></i>
             </div>
-            <FormReservation  />
+            <FormReservation places={[]}  />
         </div>
     );
 };
