@@ -5,7 +5,8 @@ import Swal from 'sweetalert2';
 import { createReservation } from '../../../../core/redux/actions/reservations/reservationActions';
 import './FormReservation.style.scss';
 import { Modal } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector, connect } from 'react-redux';
+import {bindActionCreators} from 'redux';
 import { onSelected } from '../utils/onSelected';
 import { PlacesState } from 'app/core/redux/model/PlacesState';
 import { getPlaces } from 'app/core/redux/actions/places/placesActions';
@@ -22,6 +23,7 @@ const maxRange = 9999;
 const minRange = 1000;
 
 const time = 5000;
+
 
 const FormReservation = () => {
   const dispatch = useDispatch();
@@ -63,7 +65,7 @@ const FormReservation = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    getList();
+    /* getList(); */
   }, [getList]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -330,4 +332,10 @@ const FormReservation = () => {
   );
 };
 
-export default FormReservation;
+const mapDispatchToProps = (dispatch:any) => {
+  return {
+    getPlaces: bindActionCreators(getPlaces, dispatch),
+  }
+}
+
+export default connect(null, mapDispatchToProps)(FormReservation);

@@ -16,43 +16,6 @@ describe('Test Form With React Testing Library', () => {
 
   test('true', () => {
     expect(true).toBeTruthy();
-  })
-
-  test('Render component', () => {
-    const component = render(FormReservation);
-
-    expect(component).toBeTruthy();
-
-    /* store = mockStore(initialState);
-    const wrapper = mount(
-      <Provider store={store}>
-        <FormReservation />{' '}
-      </Provider>
-    ); */
-    /* expect(wrapper.find('Nueva Reservación')).toBeTruthy(); */
   });
-
-  /* test('Inputs', () => {
-    store = mockStore(initialState);
-    const page = mount(
-      <Provider store={store}>
-        <FormReservation />
-      </Provider>
-    );
-    expect(page.find('Input').length).toEqual(4);
-  }); */
-
-  /* test('Selects ', () => {
-    store = mockStore(initialState);
-    const page = mount(
-      <Provider store={store}>
-        <FormReservation />
-      </Provider>
-    )
-    expect(page.find('Select').length).toEqual(2);
-
-  }); */
-
-  
 
 });

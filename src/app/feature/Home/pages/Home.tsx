@@ -24,7 +24,7 @@ export const Home: React.FC<HomeProps> = () => {
   
   useEffect(() => {
 
-    getList();
+    /* getList(); */
 
 
     

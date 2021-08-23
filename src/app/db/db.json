@@ -187,6 +187,18 @@
       "lastname": "Guest LastName",
       "birthdate": "1997-04-04",
       "active": true
+    },
+    {
+      "id": 9,
+      "flightNumber": "FL-1009",
+      "cityOrigin": "Medellín",
+      "cityDestination": "Bucaramanga",
+      "datetime": "2021-12-16",
+      "price": "1530000",
+      "name": "SEBASTIAN",
+      "lastname": "ALVAREZ",
+      "birthdate": "1997-04-04",
+      "active": true
     }
   ]
 }
