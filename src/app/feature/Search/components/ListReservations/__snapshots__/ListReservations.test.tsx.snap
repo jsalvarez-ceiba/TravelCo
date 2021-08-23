@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test List Reservations test render component 1`] = `
+<div>
+  <div
+    data-aos="fade-down"
+    data-aos-duration="1500"
+    data-aos-easing="linear"
+  >
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "height": "30vh",
+          "justifyContent": "center",
+          "width": "100vw",
+        }
+      }
+    >
+      <div>
+        <h4
+          className="text-white"
+        >
+          Buscar vuelo
+        </h4>
+        <div
+          style={
+            Object {
+              "display": "flex",
+              "flexWrap": "wrap",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <div>
+            <input
+              className="form-control"
+              name="search"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+          <div>
+            <button
+              className="btn btn-info"
+              onClick={[Function]}
+            >
+              <i
+                className="fas fa-search"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="d-flex justify-content-center"
+    >
+      <h4
+        className="text-white"
+      >
+        NO HAY RESERVAS EN EL MOMENTO
+      </h4>
+    </div>
+  </div>
+</div>
+`;

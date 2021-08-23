@@ -2,14 +2,12 @@ import React, { useEffect, useState, useCallback } from 'react';
 import Input from '../../../../shared/components/Input/Input';
 import Select from '../../../../shared/components/Select/Select';
 import Swal from 'sweetalert2';
-/* import { createReservation } from '../../../../core/redux/actions/reservations/reservationActions';
- */import './FormReservation.style.scss';
+import './FormReservation.style.scss';
 import { Modal } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { onSelected } from '../utils/onSelected';
 import { PlacesState } from 'app/core/redux/model/PlacesState';
-/* import { getPlaces } from 'app/core/redux/actions/places/placesActions';
- */import * as PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 
 const dateNow = new Date();
 const day = dateNow.getDate();
@@ -28,13 +26,10 @@ interface FormProps {
   places: [];
 }
 
-const FormReservation = (props : FormProps) => {
-
-  //const dispatch = useDispatch();
-
+const FormReservation = (props: FormProps) => {
   const places = useSelector<PlacesState, PlacesState['places']>(
     state => state.places
-  ); 
+  );
 
   const [cityOrigin, setCityOrigin] = useState('');
   const [cityDestination, setCityDestination] = useState('');
@@ -64,9 +59,7 @@ const FormReservation = (props : FormProps) => {
     flag: string;
   }
 
-  const getList = useCallback(() => {
-    /* dispatch(getPlaces()); */
-  }, []);
+  const getList = useCallback(() => {}, []);
 
   useEffect(() => {
     getList();
@@ -125,8 +118,6 @@ const FormReservation = (props : FormProps) => {
       setTimeout(() => {
         handleClose();
       }, time);
-
-      /* dispatch(createReservation(obj));  */
 
       Swal.fire('¡Se ha creado la reserva con exito!');
     } else {
@@ -337,7 +328,7 @@ const FormReservation = (props : FormProps) => {
 };
 
 FormReservation.propTypes = {
-  places: PropTypes.array.isRequired
-}
+  places: PropTypes.array.isRequired,
+};
 
 export default FormReservation;
