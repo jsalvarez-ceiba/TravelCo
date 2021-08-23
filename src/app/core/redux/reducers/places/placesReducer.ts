@@ -1,5 +1,5 @@
 import { PlacesState } from '../../model/PlacesState';
-/* import Places from '../../../../feature/Places/models/Places.model'; */
+
 import { Actions, SET_PLACES } from '../../actions/places/placesTypes';
 
 const InitialState: PlacesState = {
@@ -12,7 +12,7 @@ const placesReducer = (state = InitialState, action: Actions): PlacesState => {
       return {
         ...state,
         places: action.payload
-      } 
+      }; 
     default:
       return state;
   }

@@ -2,33 +2,24 @@ import * as PropTypes from 'prop-types';
 import React, { useEffect, useCallback } from 'react';
 import TitleHome from '../components/TitleHome/TitleHome';
 import './Home.style.scss';
-import { useDispatch} from 'react-redux';
-/* import { PlacesState } from 'app/core/redux/model/PlacesState'; */
+import { useDispatch } from 'react-redux';
 import { getPlaces } from 'app/core/redux/actions/places/placesActions';
 
 interface HomeProps {
   name: string;
 }
 
-export const Home: React.FC<HomeProps> = () => {  
-
+export const Home: React.FC<HomeProps> = () => {
   const dispatch = useDispatch();
 
-  /* const places = useSelector<PlacesState, PlacesState['places']>((state) => state.places); */
+  
 
   const getList = useCallback(() => {
     dispatch(getPlaces());
-  }, [dispatch])
+  }, [dispatch]);
 
-
-  
   useEffect(() => {
-
-    /* getList(); */
-
-
-    
-    
+    getList();
   }, [getList]);
 
   return (
@@ -95,7 +86,6 @@ export const Home: React.FC<HomeProps> = () => {
     </div>
   );
 };
-
 
 Home.propTypes = {
   name: PropTypes.string.isRequired,

@@ -73,9 +73,7 @@ const ListReservations = () => {
     getFlights();
   };
 
-  /* const deleteF = (id : string) => {
-    dispatch(deleteReservation(id));
-  } */
+  
 
   useEffect(() => {
     getFlights();

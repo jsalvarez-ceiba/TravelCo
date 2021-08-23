@@ -5,6 +5,5 @@ export const urls = {
 };
 
 export const servicePlaces = {
-    getP: () => 
-        axiosIntance.get('http://localhost:8000/places'),
-};
+    getP: () => axiosIntance.get('http://localhost:8000/places'),
+}
