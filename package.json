@@ -32,7 +32,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:watch": "react-scripts test --watchAll",
-    "test:coverage": "react-scripts test --watchAll=false --coverage",
+    "test:coverage": "react-scripts test --watchAll=false --coverage -u",
     "lint": "eslint --fix src/**/*.{ts,tsx}",
     "cypress": "cypress open"
   },
