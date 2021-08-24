@@ -60,7 +60,7 @@ describe('Test Form With React Testing Library', () => {
 
 
 
-  test('Testing use state hooks', () => {
+  /* test('Testing use state hooks', () => {
     store = mockStore(initialState);
     const cityOrigin = 'cityOrigin';
     const cityDestination = 'cityDestination';
@@ -95,7 +95,7 @@ describe('Test Form With React Testing Library', () => {
     );
 
     expect(wrapper).toMatchSnapshot();
-  });
+  }); */
 
   
 });
