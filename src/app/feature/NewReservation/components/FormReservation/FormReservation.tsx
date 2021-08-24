@@ -4,10 +4,11 @@ import Select from '../../../../shared/components/Select/Select';
 import Swal from 'sweetalert2';
 import './FormReservation.style.scss';
 import { Modal } from 'react-bootstrap';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { onSelected } from '../utils/onSelected';
 import { PlacesState } from 'app/core/redux/model/PlacesState';
 import * as PropTypes from 'prop-types';
+import { getPlaces } from 'app/core/redux/actions/places/placesActions';
 
 const dateNow = new Date();
 const day = dateNow.getDate();
@@ -27,10 +28,12 @@ interface FormProps {
 }
 
 const FormReservation = (props: FormProps) => {
+
+  const dispatch = useDispatch();
+
   const places = useSelector<PlacesState, PlacesState['places']>(
     state => state.places
   );
-
   const [cityOrigin, setCityOrigin] = React.useState('');
   const [cityDestination, setCityDestination] = React.useState('');
   const [name, setName] = useState('');
@@ -48,23 +51,20 @@ const FormReservation = (props: FormProps) => {
     name: '',
     lastname: '',
   });
-
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
   interface Places {
     city: string;
     country: string;
     flag: string;
   }
-
-  const getList = useCallback(() => {}, []);
-
+  const getList = useCallback(async () => { 
+     dispatch(getPlaces())
+     }, [dispatch]);
   useEffect(() => {
     getList();
   }, [getList]);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     switch (e.target.name) {
       case 'name':
@@ -78,7 +78,6 @@ const FormReservation = (props: FormProps) => {
         break;
     }
   };
-
   const onHandleSelected = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const { priceLocale, cityOriginLocale, cityDestinationLocale } = onSelected(e);
     if (e.target.name === 'origin') {
@@ -88,12 +87,10 @@ const FormReservation = (props: FormProps) => {
       setPrice(priceLocale);
     }
   };
-
   const dispatchAction = () => {
     if (name !== '' && lastname !== '' && date !== '') {
       const nRandom = Math.random() * (maxRange - minRange) + minRange;
       const nTrunc = Math.trunc(nRandom);
-
       const obj = {
         id: '',
         flightNumber: `FL-${nTrunc}`,
@@ -114,32 +111,25 @@ const FormReservation = (props: FormProps) => {
         name: obj.name,
         lastname: obj.lastname,
       });
-
       setTimeout(() => {
         handleClose();
       }, time);
-
       Swal.fire('¡Se ha creado la reserva con exito!');
     } else {
       Swal.fire('Datos incompletos');
     }
   };
-
   const calculateAge = (dateEvent: React.ChangeEvent<HTMLInputElement>) => {
     const birth = new Date(dateEvent.target.value);
     const now = new Date();
     let years = now.getFullYear() - birth.getFullYear();
-
     birth.setFullYear(now.getFullYear());
-
     if (now < birth) {
       years--;
     }
-
     setBirthdate(dateEvent.target.value);
     setAge(years);
   };
-
   const calculatePriceWithDate = (
     dateLocale: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -147,16 +137,11 @@ const FormReservation = (props: FormProps) => {
     const july = 7;
     const november = 9;
     const december = 12;
-
     const increment = 0.2;
     const disc = 0.15;
-
     setDate(dateLocale.target.value);
-
     const reservationDate = new Date(dateLocale.target.value);
-
     const mon = reservationDate.getMonth() + 1;
-
     if (mon >= april && mon <= july) {
       const plus = price * increment;
       const newP = price + plus;
@@ -183,7 +168,6 @@ const FormReservation = (props: FormProps) => {
         <div className="card-body">
           <h6 className="card-title">Información del vuelo</h6>
           <hr />
-
           <div className="form-group">
             <strong>Origen</strong>
             <Select
@@ -193,12 +177,9 @@ const FormReservation = (props: FormProps) => {
               data={places !== undefined ? places : props.places}
             />
           </div>
-
           <br />
-
           <div className="form-group">
             <strong>Destino</strong>
-
             <Select
               onChange={e => onHandleSelected(e)}
               name="destination"
@@ -206,9 +187,7 @@ const FormReservation = (props: FormProps) => {
               data={places !== undefined ? places : props.places}
             />
           </div>
-
           <br />
-
           <div className="form-group">
             <strong>Fecha y Hora</strong>
             <Input
@@ -223,13 +202,10 @@ const FormReservation = (props: FormProps) => {
               onChange={e => handleChange(e)}
             />
           </div>
-
           <br />
-
           <div className="form-group">
             <strong>Precio viaje : {price} COP </strong>
           </div>
-
           <div className="form-group">
             <strong> Condiciones </strong>
             {message === 'plus' ? (
@@ -238,19 +214,15 @@ const FormReservation = (props: FormProps) => {
               <strong className="text-success"> 15 % OFF </strong>
             ) : null}
           </div>
-
           <div className="form-group">
             <strong>Total: {newPrice} </strong>
           </div>
         </div>
       </div>
-
       <div data-aos="zoom-in" className="card mx-auto opacityCell">
         <div className="card-body">
           <h6 className="card-title">Datos personales </h6>
-
           <hr />
-
           <div className="form-group">
             <strong>Nombres</strong>
             <Input
@@ -260,9 +232,7 @@ const FormReservation = (props: FormProps) => {
               onChange={e => handleChange(e)}
             />
           </div>
-
           <br />
-
           <div className="form-group">
             <strong>Apellidos</strong>
             <Input
@@ -272,9 +242,7 @@ const FormReservation = (props: FormProps) => {
               onChange={e => handleChange(e)}
             />
           </div>
-
           <br />
-
           <div className="form-group">
             <strong> Fecha de Nacimiento </strong>
             <Input
@@ -284,9 +252,7 @@ const FormReservation = (props: FormProps) => {
               onChange={e => calculateAge(e)}
             />
           </div>
-
           <br />
-
           {age >= Age18 ? (
             <div>
               <button
@@ -308,18 +274,13 @@ const FormReservation = (props: FormProps) => {
         <Modal.Header>Resumen de la Reserva</Modal.Header>
         <Modal.Body>
           <h5> Vuelo # {summary.flightNumber} </h5>
-
           <hr />
-
           <h6> Ciudad Origen: {summary.cityOrigin} </h6>
           <h6> Ciudad Destino: {summary.cityDestination} </h6>
           <h6>
-            {' '}
-            Nombre titular : {summary.name} {summary.lastname}{' '}
+            Nombre titular : {summary.name} {summary.lastname}
           </h6>
-
           <hr />
-
           <h4>Precio : {newPrice} COP</h4>
         </Modal.Body>
       </Modal>

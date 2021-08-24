@@ -91,7 +91,7 @@ exports[`Render Home View render component 1`] = `
           </strong>
           <input
             className="form-control"
-            max="2022-08-23"
+            max="2022-08-24"
             name="date"
             onChange={[Function]}
             type="date"
