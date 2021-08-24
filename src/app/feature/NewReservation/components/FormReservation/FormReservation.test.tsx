@@ -1,12 +1,13 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
+import { prettyDOM } from '@testing-library/dom';
+
 import renderer from 'react-test-renderer';
 
 import FormReservation from './FormReservation';
 
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-
 
 import { mount, shallow } from 'enzyme';
 import { Provider } from 'react-redux';
@@ -20,30 +21,33 @@ function requiredProps(overrides = {}) {
 function renderComponent(props = requiredProps()) {}
 
 const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares)
+const mockStore = configureMockStore(middlewares);
 
 describe('Test Form With React Testing Library', () => {
-
-
-
   let store, wrapper;
 
+  beforeEach(() => {});
 
-  beforeEach(() => {
-    
-  })
-  
-  
-  
-
-  
-  /* const initialState = {}; */
+  const initialState = {};
   /* const mockStore = configureStore(); */
-  
-  test('render component', () => {
-    
-    
+
+  test('opacityCell Test', () => {
     store = mockStore({});
+    const component = render(
+      <Provider store={store}>
+        <FormReservation places={[]} />
+      </Provider>
+    );
+
+    const div = component.container.querySelector('.card');
+
+    /*     console.log(prettyDOM(div));
+     */ expect(div).not.toBeNull();
+  });
+
+
+  test('render component', () => {
+    store = mockStore(initialState);
     wrapper = shallow(
       <Provider store={store}>
         <FormReservation places={[]} />
@@ -51,10 +55,12 @@ describe('Test Form With React Testing Library', () => {
     );
 
     expect(wrapper.find('div').length).toBe(0);
-
   });
 
-  /* test('Testing use state hooks', () => {
+
+
+
+  test('Testing use state hooks', () => {
     store = mockStore(initialState);
     const cityOrigin = 'cityOrigin';
     const cityDestination = 'cityDestination';
@@ -89,5 +95,7 @@ describe('Test Form With React Testing Library', () => {
     );
 
     expect(wrapper).toMatchSnapshot();
-  }); */
+  });
+
+  
 });

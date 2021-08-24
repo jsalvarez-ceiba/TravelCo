@@ -5,32 +5,28 @@ import Swal from 'sweetalert2';
 import './FormReservation.style.scss';
 import { Modal } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
-import { onSelected } from '../utils/onSelected';
+import { onSelected } from '../utils/onSelected/onSelected';
 import { PlacesState } from 'app/core/redux/model/PlacesState';
 import * as PropTypes from 'prop-types';
 import { getPlaces } from 'app/core/redux/actions/places/placesActions';
+import { calculatePrice } from '../utils/calculatePrice/calculatePrice';
+import { calculateAge } from '../utils/calculateAge/calculateAge';
 
 const dateNow = new Date();
 const day = dateNow.getDate();
 const month = dateNow.getMonth() + 1;
 const year = dateNow.getFullYear() + 1;
-
 const Age18 = 18;
 const month10 = 10;
-
 const maxRange = 9999;
 const minRange = 1000;
-
 const time = 5000;
-
 interface FormProps {
   places: [];
 }
 
 const FormReservation = (props: FormProps) => {
-
   const dispatch = useDispatch();
-
   const places = useSelector<PlacesState, PlacesState['places']>(
     state => state.places
   );
@@ -44,13 +40,7 @@ const FormReservation = (props: FormProps) => {
   const [price, setPrice] = useState(0);
   const [newPrice, setNewprice] = useState(0);
   const [message, setMessage] = useState('');
-  const [summary, setSummary] = useState({
-    flightNumber: '',
-    cityOrigin: '',
-    cityDestination: '',
-    name: '',
-    lastname: '',
-  });
+  const [summary, setSummary] = useState({flightNumber: '',cityOrigin: '',cityDestination: '',name: '',lastname: ''});
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -59,9 +49,9 @@ const FormReservation = (props: FormProps) => {
     country: string;
     flag: string;
   }
-  const getList = useCallback(async () => { 
-     dispatch(getPlaces())
-     }, [dispatch]);
+  const getList = useCallback(async () => {
+    dispatch(getPlaces());
+  }, [dispatch]);
   useEffect(() => {
     getList();
   }, [getList]);
@@ -79,7 +69,9 @@ const FormReservation = (props: FormProps) => {
     }
   };
   const onHandleSelected = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const { priceLocale, cityOriginLocale, cityDestinationLocale } = onSelected(e);
+    const { priceLocale, cityOriginLocale, cityDestinationLocale } = onSelected(
+      e
+    );
     if (e.target.name === 'origin') {
       setCityOrigin(cityOriginLocale);
     } else if (e.target.name === 'destination') {
@@ -119,42 +111,18 @@ const FormReservation = (props: FormProps) => {
       Swal.fire('Datos incompletos');
     }
   };
-  const calculateAge = (dateEvent: React.ChangeEvent<HTMLInputElement>) => {
-    const birth = new Date(dateEvent.target.value);
-    const now = new Date();
-    let years = now.getFullYear() - birth.getFullYear();
-    birth.setFullYear(now.getFullYear());
-    if (now < birth) {
-      years--;
-    }
-    setBirthdate(dateEvent.target.value);
-    setAge(years);
+  const calcAge = (date: React.ChangeEvent<HTMLInputElement>) => {
+    const years = calculateAge(date);
+    setBirthdate(date.target.value);
+    setAge(Number(years));
   };
   const calculatePriceWithDate = (
-    dateLocale: React.ChangeEvent<HTMLInputElement>
+    date: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const april = 4;
-    const july = 7;
-    const november = 9;
-    const december = 12;
-    const increment = 0.2;
-    const disc = 0.15;
-    setDate(dateLocale.target.value);
-    const reservationDate = new Date(dateLocale.target.value);
-    const mon = reservationDate.getMonth() + 1;
-    if (mon >= april && mon <= july) {
-      const plus = price * increment;
-      const newP = price + plus;
-      setMessage('plus');
-      setNewprice(newP);
-    } else if (mon >= november && mon <= december) {
-      const discount = price * disc;
-      const newP = price - discount;
-      setMessage('discount');
-      setNewprice(newP);
-    } else {
-      setNewprice(price);
-    }
+    const { dateLocale, message, newPrice } = calculatePrice(date, price);
+    setDate(dateLocale);
+    setMessage(message);
+    setNewprice(newPrice);
   };
 
   return (
@@ -249,7 +217,7 @@ const FormReservation = (props: FormProps) => {
               value={birthdate}
               name={'birthdate'}
               type={'date'}
-              onChange={e => calculateAge(e)}
+              onChange={e => calcAge(e)}
             />
           </div>
           <br />
