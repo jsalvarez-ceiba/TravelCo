@@ -4,69 +4,69 @@ export const onSelected = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const valueEEUU = 2000000;
     const valueColombia = 1800000;
     
-    let cityOrigin = '';
-    let cityDestination = '';
-    let price = 0;
+    let cityOriginLocale = '';
+    let cityDestinationLocale = '';
+    let priceLocale = 0;
 
     switch (e.target.name) {
         case 'origin':
-            cityOrigin = e.target.value;
+            cityOriginLocale = e.target.value;
             break;
         case 'destination':
-            cityDestination = e.target.value;
+            cityDestinationLocale = e.target.value;
 
             switch (e.target.value) {
                 case 'Madrid':
-                  price = valueSpain;
+                  priceLocale = valueSpain;
                  break;
                 case 'Barcelona':
-                  price = valueSpain;
+                  priceLocale = valueSpain;
                  break;
                 case 'Marbella':
-                  price = valueSpain;
+                  priceLocale = valueSpain;
                  break;
                 case 'Galicia':
-                  price = valueSpain;
+                  priceLocale = valueSpain;
                  break;
                 case 'Ibiza':
-                  price = valueSpain;
+                  priceLocale = valueSpain;
                  break;
                 case 'Miami':
-                  price = valueEEUU;
+                  priceLocale = valueEEUU;
                 break;
                 case 'Chicago':
-                  price = valueEEUU;
+                  priceLocale = valueEEUU;
                 break;
                 case 'Los Angeles':
-                  price = valueEEUU;
+                  priceLocale = valueEEUU;
                 break;
                 case 'Boston':
-                  price = valueEEUU;
+                  priceLocale = valueEEUU;
                 break;
                 case 'Washington':
-                  price = valueEEUU;
+                  priceLocale = valueEEUU;
                 break;
                 case 'Medellín':
-                  price = valueColombia;
+                  priceLocale = valueColombia;
                   break;
                 case 'Bogotá':
-                  price = valueColombia;
+                  priceLocale = valueColombia;
                   break;
                 case 'Cali':
-                  price = valueColombia;
+                  priceLocale = valueColombia;
                   break;
                 case 'Bucaramanga':
-                  price = valueColombia;
+                  priceLocale = valueColombia;
                   break;
                 case 'Cartagena':
-                  price = valueColombia;
+                  priceLocale = valueColombia;
                   break;
               }
         break;
     }
 
 
-    return { price , cityOrigin , cityDestination };
+    return { priceLocale , cityOriginLocale , cityDestinationLocale };
 
 
 };

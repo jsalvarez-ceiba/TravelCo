@@ -31,8 +31,8 @@ const FormReservation = (props: FormProps) => {
     state => state.places
   );
 
-  const [cityOrigin, setCityOrigin] = useState('');
-  const [cityDestination, setCityDestination] = useState('');
+  const [cityOrigin, setCityOrigin] = React.useState('');
+  const [cityDestination, setCityDestination] = React.useState('');
   const [name, setName] = useState('');
   const [lastname, setLastname] = useState('');
   const [age, setAge] = useState(0);
@@ -80,12 +80,12 @@ const FormReservation = (props: FormProps) => {
   };
 
   const onHandleSelected = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const { price, cityOrigin, cityDestination } = onSelected(e);
+    const { priceLocale, cityOriginLocale, cityDestinationLocale } = onSelected(e);
     if (e.target.name === 'origin') {
-      setCityOrigin(cityOrigin);
+      setCityOrigin(cityOriginLocale);
     } else if (e.target.name === 'destination') {
-      setCityDestination(cityDestination);
-      setPrice(price);
+      setCityDestination(cityDestinationLocale);
+      setPrice(priceLocale);
     }
   };
 
@@ -141,7 +141,7 @@ const FormReservation = (props: FormProps) => {
   };
 
   const calculatePriceWithDate = (
-    date: React.ChangeEvent<HTMLInputElement>
+    dateLocale: React.ChangeEvent<HTMLInputElement>
   ) => {
     const april = 4;
     const july = 7;
@@ -151,9 +151,9 @@ const FormReservation = (props: FormProps) => {
     const increment = 0.2;
     const disc = 0.15;
 
-    setDate(date.target.value);
+    setDate(dateLocale.target.value);
 
-    const reservationDate = new Date(date.target.value);
+    const reservationDate = new Date(dateLocale.target.value);
 
     const mon = reservationDate.getMonth() + 1;
 

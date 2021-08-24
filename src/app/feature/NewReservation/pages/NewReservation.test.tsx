@@ -18,14 +18,14 @@ describe('Render Home View', () => {
     expect(component).toBeTruthy();
   });
 
-  /* test('backgroundFlyCell', () => {
+  test('render component', () => {
     store = mockStore(initialState);
-    const page = mount(
+    const component = mount(
       <Provider store={store}>
         <NewReservation />
       </Provider>
     );
-    expect(page.find('div').hasClass('backgroundFlyCell')).toBeTruthy();
-  }); */
+    expect(component).toMatchSnapshot();
+  });
 
 });

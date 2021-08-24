@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 import { Places } from './Places';
 import configureStore from 'redux-mock-store';
+import { render } from '@testing-library/react';
 
 
 describe('Test Places View', () => {
@@ -20,4 +21,17 @@ describe('Test Places View', () => {
     );
     expect(component).toMatchSnapshot();
   });
+
+  test('render div background', () => {
+    store = mockStore(initialState);
+    const component = mount(
+
+      <Provider store={store}>
+        <Places />
+      </Provider>
+
+    );
+    expect(component.find('h1')).toEqual({});
+
+  })
 });
