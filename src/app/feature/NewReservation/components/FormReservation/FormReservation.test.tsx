@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+/* import { render } from '@testing-library/react'; */
 import { prettyDOM } from '@testing-library/dom';
 
 import renderer from 'react-test-renderer';
@@ -9,7 +9,7 @@ import FormReservation from './FormReservation';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import { mount, shallow } from 'enzyme';
+import { mount, shallow, render } from 'enzyme';
 import { Provider } from 'react-redux';
 
 function requiredProps(overrides = {}) {
@@ -29,36 +29,17 @@ describe('Test Form With React Testing Library', () => {
   beforeEach(() => {});
 
   const initialState = {};
-  /* const mockStore = configureStore(); */
 
-  test('opacityCell Test', () => {
-    store = mockStore({});
-    const component = render(
-      <Provider store={store}>
-        <FormReservation places={[]} />
-      </Provider>
-    );
-
-    const div = component.container.querySelector('.card');
-
-    /*     console.log(prettyDOM(div));
-     */ expect(div).not.toBeNull();
-  });
-
-
-  test('render component', () => {
+  it('render component', () => {
     store = mockStore(initialState);
-    wrapper = shallow(
+    wrapper = render(
       <Provider store={store}>
         <FormReservation places={[]} />
       </Provider>
     );
 
-    expect(wrapper.find('div').length).toBe(0);
+    expect(wrapper).toMatchSnapshot();
   });
-
-
-
 
   /* test('Testing use state hooks', () => {
     store = mockStore(initialState);
@@ -96,6 +77,4 @@ describe('Test Form With React Testing Library', () => {
 
     expect(wrapper).toMatchSnapshot();
   }); */
-
-  
 });

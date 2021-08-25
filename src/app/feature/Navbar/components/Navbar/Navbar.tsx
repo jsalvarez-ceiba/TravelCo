@@ -6,7 +6,7 @@ import './Navbar.style.scss';
 
 const arraySidebar = [
     {
-        title: 'Home',
+        title: 'Inicio',
         path: '/',
     },
     {
@@ -30,13 +30,13 @@ const Navbar : React.FC = () => {
         <>
             <div className="collapse" id="navbarToggleExternalContent">
                 <div className="bg-dark p-4">
-                    <h5 className="text-white h4">Bienvenido a TravelCo</h5>
+                    {/* <h5 className="text-warning">Bienvenido a TravelCo</h5> */}
                     <br />
                     <ul>
                         {
                             arraySidebar.map((element, index) => (
                                 <Link key={index.toString()} className="link" to={element.path}>
-                                    <li className="li" key={index.toString()}> {element.title} </li>
+                                    <li className="li text-warning" key={index.toString()}> {element.title} </li>
                                 </Link>
                             ))
                         }

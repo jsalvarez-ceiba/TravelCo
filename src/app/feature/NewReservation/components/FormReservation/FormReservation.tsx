@@ -40,15 +40,16 @@ const FormReservation = (props: FormProps) => {
   const [price, setPrice] = useState(0);
   const [newPrice, setNewprice] = useState(0);
   const [message, setMessage] = useState('');
-  const [summary, setSummary] = useState({flightNumber: '',cityOrigin: '',cityDestination: '',name: '',lastname: ''});
+  const [summary, setSummary] = useState({
+    flightNumber: '',
+    cityOrigin: '',
+    cityDestination: '',
+    name: '',
+    lastname: '',
+  });
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  interface Places {
-    city: string;
-    country: string;
-    flag: string;
-  }
   const getList = useCallback(async () => {
     dispatch(getPlaces());
   }, [dispatch]);
@@ -111,15 +112,13 @@ const FormReservation = (props: FormProps) => {
       Swal.fire('Datos incompletos');
     }
   };
-  const calcAge = (date: React.ChangeEvent<HTMLInputElement>) => {
-    const years = calculateAge(date);
-    setBirthdate(date.target.value);
+  const calcAge = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const years = calculateAge(e);
+    setBirthdate(e.target.value);
     setAge(Number(years));
   };
-  const calculatePriceWithDate = (
-    date: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    const { dateLocale, message, newPrice } = calculatePrice(date, price);
+  const calculatePriceWithDate = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { dateLocale, message, newPrice } = calculatePrice(e, price);
     setDate(dateLocale);
     setMessage(message);
     setNewprice(newPrice);

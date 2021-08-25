@@ -1,11 +1,18 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+/* import { render, screen } from '@testing-library/react'; */
 
 import ListReservations from './ListReservations';
+import * as utils from './utils/servicesTests';
 
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import { mount, shallow } from 'enzyme';
+import { mount, shallow, render } from 'enzyme';
+
+interface propsPromise {
+  then: any;
+  catch: any;
+  finally: any;
+}
 
 describe('Test List Reservations', () => {
   const initialState = {};
@@ -15,13 +22,12 @@ describe('Test List Reservations', () => {
   test('Test Buscar Vuelo Text', () => {
     store = mockStore(initialState);
 
-    const { getByText } = render(
+    wrapper = mount(
       <Provider store={store}>
-        {' '}
-        <ListReservations />{' '}
+        <ListReservations />
       </Provider>
     );
-    expect(getByText('Buscar vuelo')).not.toBeNull();
+    expect(wrapper.text()).toContain('Buscar vuelo');
   });
 
   test('test render component', () => {

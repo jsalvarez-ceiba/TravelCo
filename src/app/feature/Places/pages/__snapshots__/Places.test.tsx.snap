@@ -1,31 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Test Places View render component 1`] = `
-<div
-  className="background"
->
+Array [
   <div
-    className="flexCenter p-3"
-    data-aos="fade-down"
-    data-aos-duration="1500"
-    data-aos-easing="linear"
-  >
-    <h1
-      className="title"
-    >
-      Destinos Nacionales e Internacionales
-    </h1>
-  </div>
-  <div
-    className="flexCenter mt-5"
+    className="flexCenter"
   >
     <div
-      className="flexCenter"
+      className="flexCenter background"
     >
       <h1>
         cargando...
       </h1>
     </div>
-  </div>
-</div>
+  </div>,
+  <div
+    className="flexCenter bg-dark"
+  >
+    <small
+      className="text-white"
+    >
+      TravelCo | Todos los derechos reservados 2021
+    </small>
+  </div>,
+]
 `;

@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Form With React Testing Library render component 1`] = `
+Array [
+  <div
+    class="card mx-auto opacityCell"
+    data-aos="zoom-in"
+  >
+    <div
+      class="card-header"
+    >
+      <div
+        class=""
+      >
+        <strong>
+          Nueva Reservación
+        </strong>
+      </div>
+    </div>
+    <div
+      class="card-body"
+    >
+      <h6
+        class="card-title"
+      >
+        Información del vuelo
+      </h6>
+      <hr />
+      <div
+        class="form-group"
+      >
+        <strong>
+          Origen
+        </strong>
+        <select
+          class="form-control"
+          name="origin"
+        >
+          <option
+            value=""
+          >
+            Seleccionar Origen 
+          </option>
+        </select>
+      </div>
+      <br />
+      <div
+        class="form-group"
+      >
+        <strong>
+          Destino
+        </strong>
+        <select
+          class="form-control"
+          name="destination"
+        >
+          <option
+            value=""
+          >
+            Seleccionar Destino 
+          </option>
+        </select>
+      </div>
+      <br />
+      <div
+        class="form-group"
+      >
+        <strong>
+          Fecha y Hora
+        </strong>
+        <input
+          class="form-control"
+          max="2022-08-25"
+          name="date"
+          type="date"
+          value=""
+        />
+      </div>
+      <br />
+      <div
+        class="form-group"
+      >
+        <strong>
+          Precio viaje : 0 COP 
+        </strong>
+      </div>
+      <div
+        class="form-group"
+      >
+        <strong>
+           Condiciones 
+        </strong>
+      </div>
+      <div
+        class="form-group"
+      >
+        <strong>
+          Total: 0 
+        </strong>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="card mx-auto opacityCell"
+    data-aos="zoom-in"
+  >
+    <div
+      class="card-body"
+    >
+      <h6
+        class="card-title"
+      >
+        Datos personales 
+      </h6>
+      <hr />
+      <div
+        class="form-group"
+      >
+        <strong>
+          Nombres
+        </strong>
+        <input
+          class="form-control"
+          name="name"
+          type="text"
+          value=""
+        />
+      </div>
+      <br />
+      <div
+        class="form-group"
+      >
+        <strong>
+          Apellidos
+        </strong>
+        <input
+          class="form-control"
+          name="lastname"
+          type="text"
+          value=""
+        />
+      </div>
+      <br />
+      <div
+        class="form-group"
+      >
+        <strong>
+           Fecha de Nacimiento 
+        </strong>
+        <input
+          class="form-control"
+          name="birthdate"
+          type="date"
+          value=""
+        />
+      </div>
+      <br />
+      <strong
+        class="text-danger"
+      >
+        Debes ser mayor de edad para generar una reserva!
+      </strong>
+    </div>
+  </div>,
+]
+`;

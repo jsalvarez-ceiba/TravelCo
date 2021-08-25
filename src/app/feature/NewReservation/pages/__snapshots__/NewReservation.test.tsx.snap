@@ -91,7 +91,7 @@ exports[`Render Home View render component 1`] = `
           </strong>
           <input
             className="form-control"
-            max="2022-08-24"
+            max="2022-08-25"
             name="date"
             onChange={[Function]}
             type="date"
@@ -193,5 +193,14 @@ exports[`Render Home View render component 1`] = `
     </div>,
     "",
   ]
+  <div
+    className="flexCenter bg-dark"
+  >
+    <small
+      className="text-white"
+    >
+      TravelCo | Todos los derechos reservados 2021
+    </small>
+  </div>
 </div>
 `;

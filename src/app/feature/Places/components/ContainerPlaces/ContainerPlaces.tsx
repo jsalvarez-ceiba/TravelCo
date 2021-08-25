@@ -32,17 +32,17 @@ const ContainerPlaces = () => {
 
 
   return (
-    <div className="flexCenter">
+    <div className="flexCenter background">
       {places !== undefined ? (
         <>
           {places.map((element: placesModel, index: number) => (
-            <div key={index.toString()} className="card">
+            <div key={index.toString()} className="card text-white bg-warning">
               <img
                 style={{ width: 320, height: 250 }}
                 src={
                   element.city === 'Medellín' ? medellin : element.city === 'Bogotá' ? bogota : element.city === 'Cali' ? cali : element.city === 'Bucaramanga' ? bucaramanga : element.city === 'Cartagena' ? cartagena: element.city === 'Miami'? miami: element.city === 'Chicago'? chicago: element.city === 'Los Angeles'? la: element.city === 'Boston'? boston: element.city === 'Washington'? washington: element.city === 'Barcelona'? barcelona: element.city === 'Madrid'? madrid: element.city === 'Marbella'? marbella: element.city === 'Galicia'? galicia: element.city === 'Ibiza'? ibiza: ''
                 }
-                className="card-img-top"
+                className="card-img-top bg-warning"
                 alt="..."
               />
               <div className="card-body">

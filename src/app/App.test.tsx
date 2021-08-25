@@ -8,10 +8,10 @@ describe('App Test', () => {
         render(<App />);
     });
 
-    test('Snapshot', () => {
+    /* test('Snapshot', () => {
         const page = render(<App/>);
         expect(page).toMatchSnapshot();
-    });
+    }); */
 
 })
 
