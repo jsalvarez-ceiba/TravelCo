@@ -1,7 +1,7 @@
 import * as PropTypes from 'prop-types';
 import React, { useEffect, useCallback } from 'react';
 import TitleHome from '../components/TitleHome/TitleHome';
-import Footer from '../../Footer/Footer';
+import Footer from '../../Footer/components/Footer';
 import './Home.style.scss';
 import { useDispatch } from 'react-redux';
 import { getPlaces } from 'app/core/redux/actions/places/placesActions';

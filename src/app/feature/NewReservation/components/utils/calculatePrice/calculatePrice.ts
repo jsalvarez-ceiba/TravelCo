@@ -25,6 +25,7 @@ export const calculatePrice = (date: React.ChangeEvent<HTMLInputElement>, price 
         message = 'discount';
         newPrice = newP;
       } else {
+        message = '';
         newPrice = price;
       }
 

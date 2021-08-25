@@ -18,7 +18,7 @@ function requiredProps(overrides = {}) {
   };
 }
 
-function renderComponent(props = requiredProps()) {}
+
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

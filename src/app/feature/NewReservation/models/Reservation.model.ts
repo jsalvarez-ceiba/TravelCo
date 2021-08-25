@@ -4,6 +4,7 @@ export default interface Reservation {
     cityOrigin:string;
     cityDestination:string;
     datetime: string;
+    hour: string;
     price:string;
     name:string;
     lastname:string;

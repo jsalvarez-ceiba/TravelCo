@@ -11,6 +11,7 @@ import * as PropTypes from 'prop-types';
 import { getPlaces } from 'app/core/redux/actions/places/placesActions';
 import { calculatePrice } from '../utils/calculatePrice/calculatePrice';
 import { calculateAge } from '../utils/calculateAge/calculateAge';
+import { createReservation } from 'app/core/redux/actions/reservations/reservationActions';
 
 const dateNow = new Date();
 const day = dateNow.getDate();
@@ -47,6 +48,7 @@ const FormReservation = (props: FormProps) => {
     name: '',
     lastname: '',
   });
+  const [fltime, setFltime] = useState('');
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -66,6 +68,9 @@ const FormReservation = (props: FormProps) => {
         break;
       case 'date':
         calculatePriceWithDate(e);
+        break;
+      case 'fltime':
+        setFltime(e.target.value);
         break;
     }
   };
@@ -89,6 +94,7 @@ const FormReservation = (props: FormProps) => {
         flightNumber: `FL-${nTrunc}`,
         cityOrigin,
         cityDestination,
+        hour: fltime,
         datetime: date,
         price: newPrice.toString(),
         name,
@@ -104,6 +110,7 @@ const FormReservation = (props: FormProps) => {
         name: obj.name,
         lastname: obj.lastname,
       });
+      dispatch(createReservation(obj));
       setTimeout(() => {
         handleClose();
       }, time);
@@ -169,16 +176,25 @@ const FormReservation = (props: FormProps) => {
               onChange={e => handleChange(e)}
             />
           </div>
+          <div className="form-group">
+            <Input value={fltime} name={'fltime'} type={'time'} onChange={(e) => handleChange(e)} />
+          </div>
           <br />
           <div className="form-group">
             <strong>Precio viaje : {price} COP </strong>
           </div>
           <div className="form-group">
-            <strong> Condiciones </strong>
             {message === 'plus' ? (
+              <>
+              <strong> Condiciones </strong>
               <strong className="text-danger"> 20% x Temporada Alta </strong>
+              </>
             ) : message === 'discount' ? (
+              <>
+              <strong> Condiciones </strong>
+
               <strong className="text-success"> 15 % OFF </strong>
+              </>
             ) : null}
           </div>
           <div className="form-group">
@@ -224,7 +240,7 @@ const FormReservation = (props: FormProps) => {
             <div>
               <button
                 name="save"
-                className="btn btn-info text-white mt-2"
+                className="btn btn-warning text-white mt-2"
                 onClick={() => dispatchAction()}
               >
                 Reservar

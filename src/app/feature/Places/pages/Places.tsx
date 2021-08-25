@@ -4,7 +4,7 @@ import * as PropTypes from 'prop-types';
 
 import ContainerPlaces from '../components/ContainerPlaces/ContainerPlaces';
 import { getPlaces } from 'app/core/redux/actions/places/placesActions';
-import Footer from '../../Footer/Footer';
+import Footer from '../../Footer/components/Footer';
 
 export const Places: React.FC = () => {
   const dispatch = useDispatch();

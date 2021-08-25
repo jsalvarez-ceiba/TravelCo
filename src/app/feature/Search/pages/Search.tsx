@@ -1,7 +1,7 @@
 import React from 'react';
 import ListReservations from '../components/ListReservations/ListReservations';
 import './Search.style.scss';
-import Footer from '../../Footer/Footer';
+import Footer from '../../Footer/components/Footer';
 
 const Search = () => {
   return (

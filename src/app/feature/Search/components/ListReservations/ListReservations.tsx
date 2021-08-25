@@ -15,6 +15,7 @@ interface ReservationStructure {
   cityOrigin: string;
   cityDestination: string;
   datetime: string;
+  hour: string;
   price: string;
   name: string;
   lastname: string;
@@ -31,6 +32,7 @@ const ListReservations = () => {
     cityOrigin: '',
     cityDestination: '',
     datetime: '',
+    hour: '',
     price: '',
     name: '',
     lastname: '',
@@ -113,7 +115,7 @@ const ListReservations = () => {
                 />
               </div>
               <div>
-                <button onClick={() => search()} className="btn btn-info">
+                <button onClick={() => search()} className="btn btn-light">
                   <i className="fas fa-search"></i>
                 </button>
               </div>
@@ -151,6 +153,7 @@ const ListReservations = () => {
                               cityOrigin: element.cityOrigin,
                               cityDestination: element.cityDestination,
                               datetime: element.datetime,
+                              hour: element.hour,
                               price: element.price,
                               name: element.name,
                               lastname: element.lastname,
@@ -158,12 +161,12 @@ const ListReservations = () => {
                               active: element.active,
                             });
                           }}
-                          className="btn btn-success"
+                          className="btn btn-warning"
                         >
                           Activo
                         </button>
                       ) : (
-                        <button className="btn btn-danger">Cancelado</button>
+                        <button className="btn btn-secondary">Cancelado</button>
                       )}
                       {/* <button onClick={() => deleteF(element.id)}>
                         delete

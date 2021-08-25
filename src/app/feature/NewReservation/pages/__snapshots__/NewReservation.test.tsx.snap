@@ -2,7 +2,7 @@
 
 exports[`Render Home View render component 1`] = `
 <div
-  className="backgroundFlyCell"
+  className="background"
 >
   <div
     className="d-flex justify-content-center"
@@ -98,6 +98,17 @@ exports[`Render Home View render component 1`] = `
             value=""
           />
         </div>
+        <div
+          className="form-group"
+        >
+          <input
+            className="form-control"
+            name="fltime"
+            onChange={[Function]}
+            type="time"
+            value=""
+          />
+        </div>
         <br />
         <div
           className="form-group"
@@ -110,11 +121,7 @@ exports[`Render Home View render component 1`] = `
         </div>
         <div
           className="form-group"
-        >
-          <strong>
-             Condiciones 
-          </strong>
-        </div>
+        />
         <div
           className="form-group"
         >

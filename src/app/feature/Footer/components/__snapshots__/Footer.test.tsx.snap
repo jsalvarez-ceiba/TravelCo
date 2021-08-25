@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer Component Test render 1`] = `
+<div
+  className="flexCenter bg-dark"
+>
+  <small
+    className="text-white"
+  >
+    TravelCo | Todos los derechos reservados 2021
+  </small>
+</div>
+`;

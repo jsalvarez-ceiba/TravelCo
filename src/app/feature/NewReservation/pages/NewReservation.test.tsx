@@ -1,22 +1,16 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { render } from '@testing-library/react';
-import {prettyDOM} from '@testing-library/dom';
+import { prettyDOM } from '@testing-library/dom';
 import NewReservation from './NewReservation';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-
-
 const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares)
-
-
-
+const mockStore = configureMockStore(middlewares);
 
 describe('Render Home View', () => {
-
   /* const initialState = {}; */
   /* const mockStore = configureMockStore(); */
   let store, wrapper;
@@ -39,13 +33,8 @@ describe('Render Home View', () => {
       </Provider>
     );
 
-    const div = component.container.querySelector('.backgroundFlyCell');
+    const div = component.container.querySelector('.background');
 
-    /* console.log(prettyDOM(div)); */
-
-     expect(div).not.toBeNull(); 
-
-
-  })
-
+    expect(div).not.toBeNull();
+  });
 });

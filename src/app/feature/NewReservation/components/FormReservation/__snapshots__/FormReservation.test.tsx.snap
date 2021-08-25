@@ -76,6 +76,16 @@ Array [
           value=""
         />
       </div>
+      <div
+        class="form-group"
+      >
+        <input
+          class="form-control"
+          name="fltime"
+          type="time"
+          value=""
+        />
+      </div>
       <br />
       <div
         class="form-group"
@@ -86,11 +96,7 @@ Array [
       </div>
       <div
         class="form-group"
-      >
-        <strong>
-           Condiciones 
-        </strong>
-      </div>
+      />
       <div
         class="form-group"
       >
