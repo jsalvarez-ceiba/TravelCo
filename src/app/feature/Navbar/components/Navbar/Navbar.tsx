@@ -46,6 +46,7 @@ const Navbar : React.FC = () => {
             <nav className="navbar navbar-dark bg-dark">
                 <div className="container-fluid">
                     <button
+                    name="toggler"
                     className="navbar-toggler" 
                     type="button" 
                     data-bs-toggle="collapse" 

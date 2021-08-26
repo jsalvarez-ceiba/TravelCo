@@ -21,7 +21,7 @@ const Age18 = 18;
 const month10 = 10;
 const maxRange = 9999;
 const minRange = 1000;
-const time = 5000;
+/* const time = 5000; */
 interface FormProps {
   places: [];
 }
@@ -50,7 +50,7 @@ const FormReservation = (props: FormProps) => {
   });
   const [fltime, setFltime] = useState('');
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  /* const handleClose = () => setShow(false); */
   const handleShow = () => setShow(true);
   const getList = useCallback(async () => {
     dispatch(getPlaces());
@@ -111,9 +111,9 @@ const FormReservation = (props: FormProps) => {
         lastname: obj.lastname,
       });
       dispatch(createReservation(obj));
-      setTimeout(() => {
+      /* setTimeout(() => {
         handleClose();
-      }, time);
+      }, time); */
       Swal.fire('¡Se ha creado la reserva con exito!');
     } else {
       Swal.fire('Datos incompletos');
@@ -135,12 +135,12 @@ const FormReservation = (props: FormProps) => {
     <>
       <div data-aos="zoom-in" className="card mx-auto opacityCell">
         <div className="card-header">
-          <div className="">
-            <strong>Nueva Reservación</strong>
+          <div className="title">
+            <h5 className="title">Nueva Reservación</h5>
           </div>
         </div>
         <div className="card-body">
-          <h6 className="card-title">Información del vuelo</h6>
+          <h6 className="card-title-info-flight">Información del vuelo</h6>
           <hr />
           <div className="form-group">
             <strong>Origen</strong>
@@ -253,10 +253,10 @@ const FormReservation = (props: FormProps) => {
           )}
         </div>
       </div>
-      <Modal centered show={show}>
+      <Modal className="modal" centered show={show}>
         <Modal.Header>Resumen de la Reserva</Modal.Header>
         <Modal.Body>
-          <h5> Vuelo # {summary.flightNumber} </h5>
+          <h5 className="flight-number"> Vuelo # {summary.flightNumber} </h5>
           <hr />
           <h6> Ciudad Origen: {summary.cityOrigin} </h6>
           <h6> Ciudad Destino: {summary.cityDestination} </h6>
@@ -265,6 +265,11 @@ const FormReservation = (props: FormProps) => {
           </h6>
           <hr />
           <h4>Precio : {newPrice} COP</h4>
+
+          <div className="d-flex justify-content-center">
+            <button className="btn btn-warning" onClick={() => window.location.replace('http://localhost:3000/search') }>Ir a reservas</button>
+          </div>
+
         </Modal.Body>
       </Modal>
     </>

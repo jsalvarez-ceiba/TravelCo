@@ -17,10 +17,10 @@ import {urls} from '../../../api/endpoints';
     };
 }; 
 
- export const getReservations = async () => {
+ export const getReservations = async (page:number) => {
     
         try {
-            const res = await axiosIntance.get(`${urls.localhost}/reservations`, {
+            const res = await axiosIntance.get(`${urls.localhost}/reservations?_page=${page}&_limit=4`, {
                 headers: {'Content-Type': 'application/json'}
             });
             return res.data;
